@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/tvRegistro"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:background="@android:drawable/bottom_bar"
         android:backgroundTint="@color/azul_intermedio"
