@@ -1,14 +1,13 @@
 package es.murallaromana.proyecto
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.Button
-import com.google.android.material.textfield.TextInputEditText
-
-import android.content.SharedPreferences
 import android.util.Log
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
 
 
 class RegistraActivity : AppCompatActivity() {
@@ -72,15 +71,15 @@ class RegistraActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
-        fun getEmail(): String? {
-            val preferences = getPreferences(Context.MODE_PRIVATE)
-            return preferences.getString("email", "")
-        }
+    fun getEmail(): String? {
+        val preferences = getPreferences(Context.MODE_PRIVATE)
+        return preferences.getString("email", "")
+    }
 
-        fun getPassword(): String? {
-            val preferences = getPreferences(Context.MODE_PRIVATE)
-            return preferences.getString("password", "")
-        }
+    fun getPassword(): String? {
+        val preferences = getPreferences(Context.MODE_PRIVATE)
+        return preferences.getString("password", "")
     }
 }
