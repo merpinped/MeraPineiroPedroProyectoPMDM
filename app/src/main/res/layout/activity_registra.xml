@@ -7,7 +7,7 @@
     android:background="#2C2B2B"
     android:backgroundTint="@color/azul_suave"
     android:padding="10dp"
-    tools:context=".RegistraActivity">
+    tools:context=".activities.RegistraActivity">
 
     <TextView
         android:id="@+id/tvRegistro"

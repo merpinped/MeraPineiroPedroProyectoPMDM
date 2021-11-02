@@ -1,13 +1,14 @@
-package es.murallaromana.proyecto
+package es.murallaromana.proyecto.activities
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+import es.murallaromana.proyecto.R
 
 
 class RegistraActivity : AppCompatActivity() {
@@ -46,9 +47,7 @@ class RegistraActivity : AppCompatActivity() {
                 )
                 && TextUtils.equals(tiTelefono.text.toString(), "")
             ) {
-
-                Log.d("RegistrarActivity", "Campos vacíos")
-
+                Toast.makeText(this, "Campos vacíos", Toast.LENGTH_SHORT).show()
             } else {
                 if (TextUtils.equals(
                         tiPassword.text.toString(),
@@ -67,7 +66,7 @@ class RegistraActivity : AppCompatActivity() {
 
                     onBackPressed() // Vuelve a la pantalla anterior
                 } else {
-                    Log.d("RegistrarActivity", "La contraseña y confirmar son distintas")
+                    Toast.makeText(this, "Las contraseñas son distintas", Toast.LENGTH_SHORT).show()
                 }
             }
         }

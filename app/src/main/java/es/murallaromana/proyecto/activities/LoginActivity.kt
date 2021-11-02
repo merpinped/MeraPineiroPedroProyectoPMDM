@@ -1,12 +1,11 @@
-package es.murallaromana.proyecto
+package es.murallaromana.proyecto.activities
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+import es.murallaromana.proyecto.R
 
 
 class LoginActivity : AppCompatActivity() {
@@ -27,17 +26,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegistraActivity::class.java)
             startActivity(intent)
         }
-
-        tiEmail = findViewById(R.id.tiEmail)
-        tiPassword = findViewById(R.id.tiPassword)
-
-
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        Log.d("LoginActivity", "Estoy en el onBackPressed")
-        val preferences = getPreferences(MODE_PRIVATE)
-        tiEmail.setText(preferences.getString("email", ""))
+    override fun onStart() {
+        super.onStart()
+
+
     }
 }
