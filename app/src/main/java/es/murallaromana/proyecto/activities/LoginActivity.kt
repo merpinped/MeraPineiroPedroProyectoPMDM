@@ -11,6 +11,7 @@ import es.murallaromana.proyecto.R
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var btnRegistrar: Button
+    private lateinit var btnLog: Button
     private lateinit var usuario: RegistraActivity
     private lateinit var tiEmail: TextInputEditText
     private lateinit var tiPassword: TextInputEditText
@@ -21,16 +22,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnRegistrar = findViewById(R.id.btnUusario)
-
         btnRegistrar.setOnClickListener() {
             val intent = Intent(this, RegistraActivity::class.java)
             startActivity(intent)
         }
-    }
 
-    override fun onStart() {
-        super.onStart()
-
-
+        btnLog = findViewById(R.id.btnLog)
+        btnLog.setOnClickListener() {
+            val intent = Intent(this, PeliculaActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
