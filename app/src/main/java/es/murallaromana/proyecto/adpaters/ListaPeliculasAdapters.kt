@@ -1,16 +1,19 @@
 package es.murallaromana.proyecto.adpaters
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
-class ListaPeliculasAdapters(val pelicula: List<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
+class ListaPeliculasAdapters(val peliculas: List<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
 
     class PeliculasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvDirector = itemView.findViewById<TextView>(R.id.tvDirector)
@@ -27,7 +30,7 @@ class ListaPeliculasAdapters(val pelicula: List<Pelicula>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
-        val pelicula = pelicula.get(position)
+        val pelicula = peliculas.get(position)
 
         holder.tvTitulo.setText(pelicula.nombre)
         holder.tvGenero.setText(pelicula.genero)
@@ -36,7 +39,11 @@ class ListaPeliculasAdapters(val pelicula: List<Pelicula>): RecyclerView.Adapter
 
         // Libreria picasso
         Picasso.get().load(pelicula.url).into(holder.ivImagen)
+
+        //holder.layoutItem.setOnClickListener {
+        //    val intent = Intent(this, NuevaActivity::class.java)
+       // }
     }
     //este metodo te da la cuenta del largo, entonces simplemente podemos igualarlo
-    override fun getItemCount() = pelicula.size
+    override fun getItemCount() = peliculas.size
 }
