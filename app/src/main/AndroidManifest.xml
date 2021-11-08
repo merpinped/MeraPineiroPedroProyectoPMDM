@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MeraPineiroPedroProyectoPMDM">
         <activity
+            android:name=".activities.DetallesActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.PeliculaActivity"
             android:exported="true">
             <meta-data

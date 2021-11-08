@@ -35,6 +35,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="50dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:passwordToggleEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Introduce la contraseña"
+            android:password="true"
             android:textAlignment="textStart" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,6 +73,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="50dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:passwordToggleEnabled="true"
@@ -81,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirmar contraseña"
+            android:password="true"
             android:textColor="@color/black"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black"
@@ -94,6 +98,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="50dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConfirmar">
@@ -112,6 +117,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="50dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNombre">
@@ -130,6 +136,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="50dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRegistro">
