@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:text="@string/textView_default"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="@string/textView_default"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/tvGenero" />
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="@string/textView_default"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
@@ -61,7 +61,7 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="15dp"
-        android:text="TextView"
+        android:text="@string/textView_default"
         android:textColor="@color/azul_oscuro"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="32dp"
-        android:text="Género:"
+        android:text="@string/genero"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
         app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="24dp"
-        android:text="Director:"
+        android:text="@string/director"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

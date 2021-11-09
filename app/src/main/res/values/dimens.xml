@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_pantalla_default_horizontal">16dp</dimen>
+    <dimen name="padding_pantalla_default_vertical">16dp</dimen>
+
+    <dimen name="imagen_lista_size">64dp</dimen>
+    <dimen name="campo_texto_width">300dp</dimen>
+</resources>

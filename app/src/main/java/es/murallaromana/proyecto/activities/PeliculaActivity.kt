@@ -2,8 +2,10 @@ package es.murallaromana.proyecto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityPeliculaBinding
 import es.murallaromana.proyecto.modelos.dao.PeliculaDaoMockImpl
@@ -12,6 +14,7 @@ import es.murallaromana.proyecto.modelos.dao.PeliculaDaoMockImpl
 class PeliculaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPeliculaBinding
+    private lateinit var btnMas: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +43,9 @@ class PeliculaActivity : AppCompatActivity() {
         )
         binding.rvListaPeliculas.addItemDecoration(dividerItemDecoration)
 
+        btnMas = findViewById(R.id.btnMas)
+        btnMas.setOnClickListener() {
 
+        }
     }
 }

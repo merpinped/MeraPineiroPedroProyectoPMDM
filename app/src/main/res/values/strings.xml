@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MeraPineiroPedroProyectoPMDM</string>
+    <string name="hint_introducir_password">Introduce la contraseña</string>
+    <string name="hint_confirmar_password">Confirmar contraseña</string>
+    <string name="hint_introduce_nombre">Introduce tu nombre</string>
+    <string name="hint_introduce_telefono">Introduce tu teléfono</string>
+    <string name="hint_introduce_email">Introduce el email</string>
+    <string name="btn_log">Log in</string>
+    <string name="btn_nuevo_usuario">Nuevo usuario</string>
+    <string name="inicio_sesion">Inicio de sesión</string>
+    <string name="btn_crear_usuario">Crear usuario</string>
+    <string name="nuevo_usuario">Nuevo usuario</string>
+    <string name="textView_default">TextView</string>
+    <string name="genero">Género:</string>
+    <string name="director">Director:</string>
 </resources>

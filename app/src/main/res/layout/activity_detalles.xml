@@ -7,4 +7,18 @@
     android:background="@color/azul_suave"
     tools:context=".activities.DetallesActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDescripcion"
+        android:layout_width="382dp"
+        android:layout_height="461dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDescripcion"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@
         android:layout_height="41dp"
         android:background="@android:drawable/bottom_bar"
         android:backgroundTint="@color/azul_intermedio"
-        android:text="Nuevo usuario"
+        android:text="@string/nuevo_usuario"
         android:textAlignment="center"
         android:textColor="#050505"
         android:textColorHighlight="@color/black"
@@ -30,7 +30,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutPassword"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
@@ -45,7 +45,7 @@
             android:id="@+id/tiPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Introduce la contraseña"
+            android:hint="@string/hint_introducir_password"
             android:password="true"
             android:textAlignment="textStart" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -58,7 +58,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/azul_intermedio"
-        android:text="Crear usuario"
+        android:text="@string/btn_crear_usuario"
         android:textColor="@color/black"
         android:textColorHighlight="@color/black"
         android:textColorHint="@color/black"
@@ -70,7 +70,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutConfirmar"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
@@ -85,7 +85,7 @@
             android:id="@+id/tiConfirmar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirmar contraseña"
+            android:hint="@string/hint_confirmar_password"
             android:password="true"
             android:textColor="@color/black"
             android:textColorHighlight="@color/black"
@@ -95,7 +95,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNombre"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
@@ -109,12 +109,12 @@
             android:id="@+id/tiNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Introduce tu nombre" />
+            android:hint="@string/hint_introduce_nombre" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutTelefono"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
@@ -128,13 +128,13 @@
             android:id="@+id/tiTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Introduce tu teléfono" />
+            android:hint="@string/hint_introduce_telefono" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
@@ -147,7 +147,7 @@
             android:id="@+id/tiEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Introduce el email" />
+            android:hint="@string/hint_introduce_email" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
