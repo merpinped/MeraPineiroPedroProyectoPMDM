@@ -31,6 +31,7 @@
         android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
+        android:drawableLeft="@drawable/ic_store_white_48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
