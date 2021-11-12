@@ -46,8 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_introducir_password"
-            android:password="true"
-            android:textAlignment="textStart" />
+            android:inputType="textPassword"
+            android:textAlignment="textStart"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -86,11 +88,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_confirmar_password"
-            android:password="true"
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black"
-            android:textColorLink="@color/black" />
+            android:textColorLink="@color/black"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -109,7 +113,9 @@
             android:id="@+id/tiNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_introduce_nombre" />
+            android:hint="@string/hint_introduce_nombre"
+            android:drawableStart="@drawable/ic_nombre"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -128,7 +134,9 @@
             android:id="@+id/tiTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_introduce_telefono" />
+            android:hint="@string/hint_introduce_telefono"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -147,7 +155,9 @@
             android:id="@+id/tiEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_introduce_email" />
+            android:hint="@string/hint_introduce_email"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

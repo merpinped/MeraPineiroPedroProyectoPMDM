@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityPeliculaBinding
@@ -14,7 +15,7 @@ import es.murallaromana.proyecto.modelos.dao.PeliculaDaoMockImpl
 class PeliculaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPeliculaBinding
-    private lateinit var btnMas: Button
+    private lateinit var btnMas: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +32,17 @@ class PeliculaActivity : AppCompatActivity() {
         val adapter = ListaPeliculasAdapters(listaPeliculas)
 
         // Asocio el RVIEW con sus componentes
-        binding.rvListaPeliculas.adapter = adapter
-        binding.rvListaPeliculas.layoutManager = layoutManager
+        binding.rvPeliculas.adapter = adapter
+        binding.rvPeliculas.layoutManager = layoutManager
 
-        binding.rvListaPeliculas.setHasFixedSize(true)
+        binding.rvPeliculas.setHasFixedSize(true)
 
         // Dividir el contenido de recycle view
         val dividerItemDecoration = DividerItemDecoration(
-            binding.rvListaPeliculas.context,
+            binding.rvPeliculas.context,
             layoutManager.orientation
         )
-        binding.rvListaPeliculas.addItemDecoration(dividerItemDecoration)
+        binding.rvPeliculas.addItemDecoration(dividerItemDecoration)
 
         btnMas = findViewById(R.id.btnMas)
         btnMas.setOnClickListener() {

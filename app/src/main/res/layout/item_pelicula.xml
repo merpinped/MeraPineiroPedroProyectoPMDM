@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="15dp"
         android:text="@string/textView_default"
         android:textColor="@color/azul_oscuro"
         android:textSize="30sp"

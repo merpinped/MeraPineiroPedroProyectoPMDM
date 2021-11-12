@@ -31,7 +31,6 @@
         android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
-        android:drawableLeft="@drawable/ic_store_white_48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +44,9 @@
             android:textColor="@color/black"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black"
-            android:textColorLink="@color/black" />
+            android:textColorLink="@color/black"
+            android:drawableLeft = "@drawable/ic_email"
+            android:drawablePadding = "10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,12 +66,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_introducir_password"
-            android:password="true"
+            android:inputType="textPassword"
             android:shadowColor="@color/black"
             android:textColor="@color/black"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black"
-            android:textColorLink="@color/black" />
+            android:textColorLink="@color/black"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

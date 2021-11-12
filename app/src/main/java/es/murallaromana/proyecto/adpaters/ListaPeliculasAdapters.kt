@@ -50,6 +50,8 @@ class ListaPeliculasAdapters(val peliculas: List<Pelicula>): RecyclerView.Adapte
         holder.itemView.setOnClickListener {
             Toast.makeText(holder.itemView.context, holder.tvTitulo.text, Toast.LENGTH_SHORT).show()
             val intent = Intent(holder.itemView.context, DetallesActivity::class.java)
+
+            intent.putExtra("pelicula", pelicula)
             holder.itemView.context.startActivity(intent)
         } // Click event, se abre la nueva activity
     }
