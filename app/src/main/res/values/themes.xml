@@ -15,6 +15,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.MeraPineiroPedroProyectoPMDM.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MeraPineiroPedroProyectoPMDM.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MeraPineiroPedroProyectoPMDM.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <!--<style name="Theme.MeraPineiroPedroActionBar" parent="ThemeOverlay.MaterialComponents.ActionBar">
         <item name="background">#111111</item>
     </style> -->

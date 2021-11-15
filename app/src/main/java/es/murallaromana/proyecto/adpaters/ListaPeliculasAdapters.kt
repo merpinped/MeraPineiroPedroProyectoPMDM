@@ -1,32 +1,25 @@
 package es.murallaromana.proyecto.adpaters
 
-import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.activities.DetallesActivity
-import es.murallaromana.proyecto.activities.PeliculaActivity
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
 class ListaPeliculasAdapters(val peliculas: List<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
 
     class PeliculasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val tvDirector = itemView.findViewById<TextView>(R.id.tvDirector)
-        val tvTitulo = itemView.findViewById<TextView>(R.id.tvTitulo)
+        val tvDirector = itemView.findViewById<TextView>(R.id.tvDirectorDetalles)
+        val tvTitulo = itemView.findViewById<TextView>(R.id.tvTituloDetalles)
         val ivImagen = itemView.findViewById<ImageView>(R.id.ivImagen)
-        val tvGenero = itemView.findViewById<TextView>(R.id.tvGenero)
+        val tvGenero = itemView.findViewById<TextView>(R.id.tvGeneroDetalles)
         val tvNota = itemView.findViewById<TextView>(R.id.tvNota)
     }
 

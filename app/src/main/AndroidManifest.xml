@@ -13,11 +13,7 @@
         android:theme="@style/Theme.MeraPineiroPedroProyectoPMDM">
         <activity
             android:name=".activities.DetallesActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.PeliculaActivity" />
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".activities.PeliculaActivity"
             android:exported="true">
