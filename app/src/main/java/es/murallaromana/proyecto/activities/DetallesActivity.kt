@@ -2,7 +2,9 @@ package es.murallaromana.proyecto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import com.google.android.material.textfield.TextInputEditText
+import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
@@ -13,6 +15,7 @@ class DetallesActivity : AppCompatActivity() {
     private lateinit var etGenero: TextInputEditText
     private lateinit var etNota: TextInputEditText
     private lateinit var etResumen: TextInputEditText
+    private lateinit var ivImagen: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,9 @@ class DetallesActivity : AppCompatActivity() {
 
             etResumen = findViewById(R.id.etResumen)
             etResumen.setText(infoPelicula.resumen)
+
+            ivImagen = findViewById(R.id.ivImagen)
+            Picasso.get().load(infoPelicula.url).into(ivImagen)
         }
     }
 }
