@@ -21,19 +21,21 @@ class DetallesActivity : AppCompatActivity() {
         val infoPelicula: Pelicula = intent.extras?.get("pelicula") as Pelicula
         setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
 
-        etTitulo = findViewById(R.id.etTitulo)
-        etTitulo.setText(infoPelicula.nombre)
+        if (infoPelicula != null) {
+            etTitulo = findViewById(R.id.etTitulo)
+            etTitulo.setText(infoPelicula.nombre)
 
-        etDirector = findViewById(R.id.etDirector)
-        etDirector.setText(infoPelicula.director)
+            etDirector = findViewById(R.id.etDirector)
+            etDirector.setText(infoPelicula.director)
 
-        etGenero = findViewById(R.id.etGenero)
-        etGenero.setText(infoPelicula.genero)
+            etGenero = findViewById(R.id.etGenero)
+            etGenero.setText(infoPelicula.genero)
 
-        etNota = findViewById(R.id.etNota)
-        etNota.setText(infoPelicula.nota)
+            etNota = findViewById(R.id.etNota)
+            etNota.setText(infoPelicula.nota)
 
-        etResumen = findViewById(R.id.etResumen)
-        etResumen.setText(infoPelicula.resumen)
+            etResumen = findViewById(R.id.etResumen)
+            etResumen.setText(infoPelicula.resumen)
+        }
     }
 }
