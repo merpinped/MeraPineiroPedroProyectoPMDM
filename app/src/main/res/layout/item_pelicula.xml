@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:text="@string/textView_default"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
@@ -43,13 +43,16 @@
 
     <TextView
         android:id="@+id/tvTituloDetalles"
-        android:layout_width="wrap_content"
+        android:layout_width="167dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="1dp"
         android:text="@string/textView_default"
-        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Titanic" />
@@ -59,23 +62,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="1dp"
         android:text="@string/textView_default"
         android:textColor="@color/azul_oscuro"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloDetalles"
+        app:layout_constraintVertical_bias="0.044"
         tools:text="9.5" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
         android:text="@string/genero"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
@@ -92,10 +98,4 @@
         app:layout_constraintStart_toEndOf="@+id/ivImagen"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

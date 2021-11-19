@@ -24,7 +24,7 @@ class PeliculaActivity : AppCompatActivity() {
         binding = ActivityPeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setTitle("")
+        setTitle("Peliculas")
         // Obtengo los datos de las peliculas
         val peliculaDao = PeliculaDaoMockImpl()
         val listaPeliculas = peliculaDao.getTodos()

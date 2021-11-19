@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_suave"
+    android:backgroundTint="@color/white"
     android:paddingVertical="@dimen/padding_pantalla_default_vertical"
     tools:context=".activities.PeliculaActivity">
 
@@ -24,7 +24,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="36dp"
         android:clickable="true"
-        android:src="@android:drawable/ic_menu_add"
+        android:src="@drawable/ic_add"
         app:backgroundTint="@color/azul_oscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

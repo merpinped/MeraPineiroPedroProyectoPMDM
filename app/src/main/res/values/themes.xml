@@ -3,7 +3,7 @@
     <style name="Theme.MeraPineiroPedroProyectoPMDM" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/azul_oscuro</item>
-        <item name="colorPrimaryVariant">@color/azul_intermedio</item>
+        <item name="colorPrimaryVariant">@color/azul_oscuro</item>
         <item name="colorOnPrimary">@color/negro_texto</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

@@ -108,4 +108,5 @@
     <string name="titulo">Titulo:</string>
     <string name="nota">Nota:</string>
     <string name="resumen">Resumen:</string>
+    <string name="url_imagen">Url (Imagen):</string>
 </resources>
