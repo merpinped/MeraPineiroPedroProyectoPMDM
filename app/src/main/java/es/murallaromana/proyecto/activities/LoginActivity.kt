@@ -1,5 +1,6 @@
 package es.murallaromana.proyecto.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -12,14 +13,24 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var btnRegistrar: Button
     private lateinit var btnLog: Button
-    private lateinit var usuario: RegistraActivity
     private lateinit var tiEmail: TextInputEditText
     private lateinit var tiPassword: TextInputEditText
-    private lateinit var email: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        setTitle("Inicio de sesión")
+        val sharedPreferences = getSharedPreferences("datos", Context.MODE_PRIVATE)
+
+        tiEmail = findViewById(R.id.tiEmail)
+        tiPassword = findViewById(R.id.tiPassword)
+
+        val gmail = sharedPreferences.getString("email", "usuario@gmail.com")
+        val password = sharedPreferences.getString("password", "contraseña")
+
+        tiEmail.setText(gmail)
+        tiPassword.setText(password)
 
         btnRegistrar = findViewById(R.id.btnUusario)
         btnRegistrar.setOnClickListener() {

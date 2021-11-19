@@ -9,44 +9,28 @@
     android:padding="10dp"
     tools:context=".activities.LoginActivity">
 
-    <TextView
-        android:id="@+id/tvRegistro"
-        android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:background="@android:drawable/bottom_bar"
-        android:backgroundTint="@color/azul_intermedio"
-        android:text="@string/inicio_sesion"
-        android:textAlignment="center"
-        android:textColor="#050505"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Inicio de sesión" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="@dimen/campo_texto_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegistro">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
             android:hint="@string/hint_introduce_email"
             android:textColor="@color/black"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black"
-            android:textColorLink="@color/black"
-            android:drawableLeft = "@drawable/ic_email"
-            android:drawablePadding = "10dp"/>
+            android:textColorLink="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

@@ -24,6 +24,7 @@ class RegistraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registra)
 
+        setTitle("Nuevo ususario")
         btnNuevoUsuario = findViewById(R.id.btnRegistro)
         tiEmail = findViewById(R.id.tiEmail)
         tiPassword = findViewById(R.id.tiPassword)
@@ -55,30 +56,18 @@ class RegistraActivity : AppCompatActivity() {
                     )
                 ) { // Comprueba si confirmar y password son iguales
 
-                    val sharedPref =
-                        getPreferences(Context.MODE_PRIVATE) // Guardar objetos clave valor
+                    val sharedPref = getSharedPreferences("datos", Context.MODE_PRIVATE) // Guardar objetos clave valor
                     val editor = sharedPref.edit() // Iniciamos una transacción
 
                     editor.putString("email", tiEmail.text.toString())
                     editor.putString("password", tiPassword.text.toString())
 
                     editor.apply()
-
-                    onBackPressed() // Vuelve a la pantalla anterior
+                    onBackPressed() // Vuelve atrás
                 } else {
                     Toast.makeText(this, "Las contraseñas son distintas", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-    }
-
-    fun getEmail(): String? {
-        val preferences = getPreferences(Context.MODE_PRIVATE)
-        return preferences.getString("email", "")
-    }
-
-    fun getPassword(): String? {
-        val preferences = getPreferences(Context.MODE_PRIVATE)
-        return preferences.getString("password", "")
     }
 }

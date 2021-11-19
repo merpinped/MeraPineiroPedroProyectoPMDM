@@ -1,5 +1,6 @@
 package es.murallaromana.proyecto.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -23,6 +24,7 @@ class PeliculaActivity : AppCompatActivity() {
         binding = ActivityPeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setTitle("")
         // Obtengo los datos de las peliculas
         val peliculaDao = PeliculaDaoMockImpl()
         val listaPeliculas = peliculaDao.getTodos()
@@ -46,7 +48,8 @@ class PeliculaActivity : AppCompatActivity() {
 
         btnMas = findViewById(R.id.btnMas)
         btnMas.setOnClickListener() {
-
+            val intent = Intent(this, DetallesActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -22,26 +22,24 @@ class DetallesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detalles)
 
         val infoPelicula: Pelicula = intent.extras?.get("pelicula") as Pelicula
-        setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
+
+        etTitulo = findViewById(R.id.etTitulo)
+        etDirector = findViewById(R.id.etDirector)
+        etGenero = findViewById(R.id.etGenero)
+        etNota = findViewById(R.id.etNota)
+        etResumen = findViewById(R.id.etResumen)
+        ivImagen = findViewById(R.id.ivImagen)
 
         if (infoPelicula != null) {
-            etTitulo = findViewById(R.id.etTitulo)
+            setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
             etTitulo.setText(infoPelicula.nombre)
-
-            etDirector = findViewById(R.id.etDirector)
             etDirector.setText(infoPelicula.director)
-
-            etGenero = findViewById(R.id.etGenero)
             etGenero.setText(infoPelicula.genero)
-
-            etNota = findViewById(R.id.etNota)
             etNota.setText(infoPelicula.nota)
-
-            etResumen = findViewById(R.id.etResumen)
             etResumen.setText(infoPelicula.resumen)
-
-            ivImagen = findViewById(R.id.ivImagen)
             Picasso.get().load(infoPelicula.url).into(ivImagen)
+        } else {
+            setTitle("Nueva Película")
         }
     }
 }
