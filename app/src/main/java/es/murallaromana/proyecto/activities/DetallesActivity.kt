@@ -43,12 +43,23 @@ class DetallesActivity : AppCompatActivity() {
             title = "Nueva Película"
             Picasso.get().load("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2011/07/25/110725144827_sp_question_mark_304x171_other_nocredit.jpg").into(binding.ivImagen)
 
-            binding.etTitulo.isFocusable = true
-            binding.etDirector.isFocusable = true
-            binding.etResumen.isFocusable = true
-            binding.etUrl.isFocusable = true
-            binding.etNota.isFocusable = true
-            binding.etGenero.isFocusable = true
+            binding.etTitulo.isFocusableInTouchMode = true
+            binding.etTitulo.isCursorVisible = true
+
+            binding.etDirector.isFocusableInTouchMode = true
+            binding.etDirector.isCursorVisible = true
+
+            binding.etResumen.isFocusableInTouchMode = true
+            binding.etResumen.isCursorVisible = true
+
+            binding.etUrl.isFocusableInTouchMode = true
+            binding.etUrl.isCursorVisible = true
+
+            binding.etNota.isFocusableInTouchMode = true
+            binding.etNota.isCursorVisible = true
+
+            binding.etGenero.isFocusableInTouchMode = true
+            binding.etGenero.isCursorVisible = true
         }
     }
 
@@ -65,12 +76,23 @@ class DetallesActivity : AppCompatActivity() {
             if (bandera) {
                 item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_check_24)
 
-                binding.etTitulo.isFocusable = true
-                binding.etDirector.isFocusable = true
-                binding.etResumen.isFocusable= true
-                binding.etUrl.isFocusable = true
-                binding.etNota.isFocusable = true
-                binding.etGenero.isFocusable = true
+                binding.etTitulo.isFocusableInTouchMode = true
+                binding.etTitulo.isCursorVisible = true
+
+                binding.etDirector.isFocusableInTouchMode = true
+                binding.etDirector.isCursorVisible = true
+
+                binding.etResumen.isFocusableInTouchMode = true
+                binding.etResumen.isCursorVisible = true
+
+                binding.etUrl.isFocusableInTouchMode = true
+                binding.etUrl.isCursorVisible = true
+
+                binding.etNota.isFocusableInTouchMode = true
+                binding.etNota.isCursorVisible = true
+
+                binding.etGenero.isFocusableInTouchMode = true
+                binding.etGenero.isCursorVisible = true
 
                 bandera = false // Un marcador para cambiar el icono
             } else {
