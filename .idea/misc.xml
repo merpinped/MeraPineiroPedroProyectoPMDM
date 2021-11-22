@@ -10,6 +10,7 @@
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/email_icon.xml" value="0.18640350877192982" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_edit.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_email.xml" value="0.18640350877192982" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18640350877192982" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.324609375" />
@@ -25,6 +26,7 @@
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/content_scrolling.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/item_pelicula.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_pelicula.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_pelicula_editando.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_scrolling.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18640350877192982" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18640350877192982" />

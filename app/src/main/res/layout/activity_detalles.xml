@@ -28,7 +28,11 @@
                 android:id="@+id/etTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/titulo" />
+                android:hint="@string/titulo"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -47,7 +51,11 @@
                 android:id="@+id/etDirector"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/director" />
+                android:hint="@string/director"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -66,7 +74,12 @@
                 android:id="@+id/etGenero"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/genero" />
+                android:hint="@string/genero"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +98,12 @@
                 android:id="@+id/etNota"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/nota" />
+                android:hint="@string/nota"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +124,11 @@
                 android:id="@+id/etResumen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/resumen" />
+                android:hint="@string/resumen"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
@@ -137,7 +159,13 @@
                 android:id="@+id/etUrl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/url_imagen" />
+                android:hint="@string/url_imagen"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
         </com.google.android.material.textfield.TextInputLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

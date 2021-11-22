@@ -4,50 +4,51 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.R
+import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
 class DetallesActivity : AppCompatActivity() {
 
-    private lateinit var etTitulo: TextInputEditText
-    private lateinit var etDirector: TextInputEditText
-    private lateinit var etGenero: TextInputEditText
-    private lateinit var etNota: TextInputEditText
-    private lateinit var etResumen: TextInputEditText
-    private lateinit var etUrl: TextInputEditText
-    private lateinit var ivImagen: ImageView
+    private lateinit var binding: ActivityDetallesBinding
+    private var bandera = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detalles)
+
+        binding = ActivityDetallesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
 
-        etTitulo = findViewById(R.id.etTitulo)
-        etDirector = findViewById(R.id.etDirector)
-        etGenero = findViewById(R.id.etGenero)
-        etNota = findViewById(R.id.etNota)
-        etResumen = findViewById(R.id.etResumen)
-        etUrl = findViewById(R.id.etUrl)
-        ivImagen = findViewById(R.id.ivImagen)
-
-        if (infoPelicula != null) {
+        if (infoPelicula != null) { // Si el objeto película viene vacío es una nueva película y los edit text están vacíos
             setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
-            etTitulo.setText(infoPelicula.nombre)
-            etDirector.setText(infoPelicula.director)
-            etGenero.setText(infoPelicula.genero)
-            etNota.setText(infoPelicula.nota)
-            etResumen.setText(infoPelicula.resumen)
-            etUrl.setText(infoPelicula.url)
-            Picasso.get().load(infoPelicula.url).into(ivImagen)
-        } else {
-            setTitle("Nueva Película")
-            Picasso.get().load("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2011/07/25/110725144827_sp_question_mark_304x171_other_nocredit.jpg").into(ivImagen)
+
+            binding.etTitulo.setText(infoPelicula.nombre)
+            binding.etDirector.setText(infoPelicula.director)
+            binding.etGenero.setText(infoPelicula.genero)
+            binding.etNota.setText(infoPelicula.nota)
+            binding.etResumen.setText(infoPelicula.resumen)
+            binding.etUrl.setText(infoPelicula.url)
+            Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
+        } else { // Si es una nueva película son todos editables
+            title = "Nueva Película"
+            Picasso.get().load("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2011/07/25/110725144827_sp_question_mark_304x171_other_nocredit.jpg").into(binding.ivImagen)
+
+            binding.etTitulo.isFocusable = true
+            binding.etDirector.isFocusable = true
+            binding.etResumen.isFocusable = true
+            binding.etUrl.isFocusable = true
+            binding.etNota.isFocusable = true
+            binding.etGenero.isFocusable = true
         }
     }
 
@@ -58,8 +59,38 @@ class DetallesActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.accion_guardar) { // Guardar, action bar
-            Toast.makeText(this, "Personaje guardado", Toast.LENGTH_SHORT).show()
+        if (item.itemId == R.id.accion_editar) { // Guardar, action bar
+            if (bandera) {
+                item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_check_24)
+
+                binding.etTitulo.isFocusable = true
+                binding.etDirector.isFocusable = true
+                binding.etResumen.isFocusable= true
+                binding.etUrl.isFocusable = true
+                binding.etNota.isFocusable = true
+                binding.etGenero.isFocusable = true
+
+                bandera = false // Un marcador para cambiar el icono
+            } else {
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle("Borrar personaje")
+                    .setMessage("Estas a punto de borrar un peruano")
+                    .setPositiveButton("Aceptar") { dialog, id ->
+                        item.icon = ContextCompat.getDrawable(this, R.drawable.ic_edit)
+                        bandera = true
+
+                        binding.etTitulo.isFocusable = false
+                        binding.etDirector.isFocusable = false
+                        binding.etResumen.isFocusable= false
+                        binding.etUrl.isFocusable = false
+                        binding.etNota.isFocusable = false
+                        binding.etGenero.isFocusable = false
+                    }
+                    .setNegativeButton("Cancelar", null)
+                    .create()
+
+                dialog.show()
+            }
 
             return true
         } else if (item.itemId == R.id.accion_borrar) { // Borrar, action bar
@@ -68,9 +99,9 @@ class DetallesActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             val dialog = builder.setTitle("Borrar personaje")
                 .setMessage("Estas a punto de borrar un peruano")
-                .setPositiveButton("Aceptar", {dialog, id ->
+                .setPositiveButton("Aceptar") { dialog, id ->
                     finish()
-                })
+                }
                 .setNegativeButton("Cancelar", null)
                 .create()
 
