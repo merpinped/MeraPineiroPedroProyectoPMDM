@@ -53,7 +53,9 @@ class DetallesActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detalles_pelicula, menu)
+        if (title != "Nueva Película") {
+            menuInflater.inflate(R.menu.menu_detalles_pelicula, menu)
+        }
 
         return true
     }
