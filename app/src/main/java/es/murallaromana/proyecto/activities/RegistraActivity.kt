@@ -1,6 +1,7 @@
 package es.murallaromana.proyecto.activities
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -34,6 +35,7 @@ class RegistraActivity : AppCompatActivity() {
 
         btnNuevoUsuario.setOnClickListener {
 
+            val inicio = Intent(this, LoginActivity::class.java)
             // Comprueba si todos los campos estan completos
             if (TextUtils.equals(
                     tiEmail.text.toString(),
@@ -63,7 +65,7 @@ class RegistraActivity : AppCompatActivity() {
                     editor.putString("password", tiPassword.text.toString())
 
                     editor.apply()
-                    onBackPressed() // Vuelve atrás
+                    startActivity(inicio)
                 } else {
                     Toast.makeText(this, "Las contraseñas son distintas", Toast.LENGTH_SHORT).show()
                 }
