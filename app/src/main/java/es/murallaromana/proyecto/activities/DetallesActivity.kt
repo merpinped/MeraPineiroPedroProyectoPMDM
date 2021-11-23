@@ -2,16 +2,20 @@ package es.murallaromana.proyecto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
+import es.murallaromana.proyecto.App
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
@@ -41,7 +45,9 @@ class DetallesActivity : AppCompatActivity() {
             Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
         } else { // Si es una nueva película son todos editables
             title = "Nueva Película"
-            Picasso.get().load("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2011/07/25/110725144827_sp_question_mark_304x171_other_nocredit.jpg").into(binding.ivImagen)
+            Picasso.get()
+                .load("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2011/07/25/110725144827_sp_question_mark_304x171_other_nocredit.jpg")
+                .into(binding.ivImagen)
 
             binding.etTitulo.isFocusableInTouchMode = true
             binding.etTitulo.isCursorVisible = true
@@ -61,11 +67,50 @@ class DetallesActivity : AppCompatActivity() {
             binding.etGenero.isFocusableInTouchMode = true
             binding.etGenero.isCursorVisible = true
         }
+
+        binding.btAnhadir.setOnClickListener() {
+            if (TextUtils.equals(
+                    binding.etTitulo.text.toString(),
+                    ""
+                ) || TextUtils.equals(binding.etGenero.text.toString(), "") || TextUtils.equals(
+                    binding.etDirector.text.toString(),
+                    ""
+                ) || TextUtils.equals(
+                    binding.etNota.text.toString(),
+                    ""
+                )
+                || TextUtils.equals(
+                    binding.etUrl.text.toString(),
+                    ""
+                ) || TextUtils.equals(
+                    binding.etResumen.text.toString(),
+                    ""
+                )
+            ) {
+                Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
+            } else {
+                App.pelicula.add(
+                    Pelicula(
+                        binding.etTitulo.text.toString(),
+                        binding.etGenero.text.toString(),
+                        binding.etDirector.text.toString(),
+                        binding.etNota.text.toString(),
+                        binding.etUrl.text.toString(),
+                        binding.etResumen.text.toString()
+                    ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
+                )
+
+                finish()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if (title != "Nueva Película") {
             menuInflater.inflate(R.menu.menu_detalles_pelicula, menu)
+            binding.btAnhadir.isVisible = false
+        } else {
+            binding.btAnhadir.isVisible = true
         }
 
         return true
@@ -97,15 +142,15 @@ class DetallesActivity : AppCompatActivity() {
                 bandera = false // Un marcador para cambiar el icono
             } else {
                 val builder = AlertDialog.Builder(this)
-                val dialog = builder.setTitle("Borrar personaje")
-                    .setMessage("Estas a punto de borrar un peruano")
+                val dialog = builder.setTitle("Editar personaje")
+                    .setMessage("Estás a punto de editar un peruano")
                     .setPositiveButton("Aceptar") { dialog, id ->
                         item.icon = ContextCompat.getDrawable(this, R.drawable.ic_edit)
                         bandera = true
 
                         binding.etTitulo.isFocusable = false
                         binding.etDirector.isFocusable = false
-                        binding.etResumen.isFocusable= false
+                        binding.etResumen.isFocusable = false
                         binding.etUrl.isFocusable = false
                         binding.etNota.isFocusable = false
                         binding.etGenero.isFocusable = false
@@ -122,7 +167,7 @@ class DetallesActivity : AppCompatActivity() {
 
             val builder = AlertDialog.Builder(this)
             val dialog = builder.setTitle("Borrar personaje")
-                .setMessage("Estas a punto de borrar un peruano")
+                .setMessage("Estás a punto de borrar un peruano")
                 .setPositiveButton("Aceptar") { dialog, id ->
                     finish()
                 }

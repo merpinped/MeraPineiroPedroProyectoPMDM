@@ -7,6 +7,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import es.murallaromana.proyecto.App
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityPeliculaBinding
@@ -26,8 +27,7 @@ class PeliculaActivity : AppCompatActivity() {
 
         setTitle("Peliculas")
         // Obtengo los datos de las peliculas
-        val peliculaDao = PeliculaDaoMockImpl()
-        val listaPeliculas = peliculaDao.getTodos()
+        val listaPeliculas = App.pelicula
 
         // Creo los componentes del RecyclerView
         val layoutManager =  LinearLayoutManager(this)
@@ -51,5 +51,12 @@ class PeliculaActivity : AppCompatActivity() {
             val intent = Intent(this, DetallesActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() { // Carga las imagenes cuando vuelve a la activity de pelicula
+        super.onResume()
+
+        val adapter = ListaPeliculasAdapters(App.pelicula)
+        binding.rvPeliculas.adapter = adapter
     }
 }

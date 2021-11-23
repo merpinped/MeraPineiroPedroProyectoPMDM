@@ -26,6 +26,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etTitulo"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/titulo"
@@ -49,6 +50,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDirector"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/director"
@@ -72,6 +74,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etGenero"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/genero"
@@ -96,6 +99,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etNota"
+                android:singleLine="true"
+                android:digits="1234567890 "
+                android:maxLength="9"
+                android:inputType="number"
+                android:ems="2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/nota"
@@ -166,6 +174,18 @@
                 android:focusableInTouchMode="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btAnhadir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="52dp"
+            android:clickable="true"
+            app:backgroundTint="@color/azul_oscuro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_add"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

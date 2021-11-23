@@ -29,13 +29,14 @@ class LoginActivity : AppCompatActivity() {
         val gmail = sharedPreferences.getString("email", "usuario@gmail.com")
         val password = sharedPreferences.getString("password", "contraseña")
 
-        tiEmail.setText(gmail)
-        tiPassword.setText(password)
+        tiEmail.setText(gmail?.trim()) // Elimina los espacios en blanco finales
+        tiPassword.setText(password?.trim())
 
         btnRegistrar = findViewById(R.id.btnUusario)
         btnRegistrar.setOnClickListener() {
             val intent = Intent(this, RegistraActivity::class.java)
             startActivity(intent)
+            finish() // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
         }
 
         btnLog = findViewById(R.id.btnLog)

@@ -3,7 +3,7 @@ package es.murallaromana.proyecto.modelos.dao
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
 class PeliculaDaoMockImpl: PeliculaDao {
-    override fun getTodos() = listOf(
+    override fun getTodos() = mutableListOf(
         Pelicula(
             "Titanic",
             "Romance",

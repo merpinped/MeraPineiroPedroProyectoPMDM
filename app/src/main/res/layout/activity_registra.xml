@@ -27,6 +27,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiPassword"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_password"
@@ -69,6 +70,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiConfirmar"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_password"
@@ -95,6 +97,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiNombre"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_nombre"
@@ -116,6 +119,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiTelefono"
+                android:digits="1234567890 "
+                android:maxLength="9"
+                android:inputType="number"
+                android:ems="9"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_phone"
@@ -137,6 +145,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiEmail"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_email"

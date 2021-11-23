@@ -34,23 +34,21 @@ class RegistraActivity : AppCompatActivity() {
         tiTelefono = findViewById(R.id.tiTelefono)
 
         btnNuevoUsuario.setOnClickListener {
-
             val inicio = Intent(this, LoginActivity::class.java)
             // Comprueba si todos los campos estan completos
             if (TextUtils.equals(
                     tiEmail.text.toString(),
                     ""
-                ) && TextUtils.equals(tiPassword.text.toString(), "")
-                && TextUtils.equals(
+                ) || TextUtils.equals(tiPassword.text.toString(), "") && TextUtils.equals(
                     tiConfirmar.text.toString(),
                     ""
-                ) && TextUtils.equals(
+                ) || TextUtils.equals(
                     tiNombre.text.toString(),
                     ""
                 )
-                && TextUtils.equals(tiTelefono.text.toString(), "")
+                || TextUtils.equals(tiTelefono.text.toString(), "")
             ) {
-                Toast.makeText(this, "Campos vacíos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
             } else {
                 if (TextUtils.equals(
                         tiPassword.text.toString(),
@@ -58,14 +56,18 @@ class RegistraActivity : AppCompatActivity() {
                     )
                 ) { // Comprueba si confirmar y password son iguales
 
-                    val sharedPref = getSharedPreferences("datos", Context.MODE_PRIVATE) // Guardar objetos clave valor
-                    val editor = sharedPref.edit() // Iniciamos una transacción
+                    val sharedPref = getSharedPreferences(
+                        "datos",
+                        Context.MODE_PRIVATE
+                    ) // Guardar objetos clave valor
+                    val editor = sharedPref.edit() // Iniciamos una acción
 
-                    editor.putString("email", tiEmail.text.toString())
-                    editor.putString("password", tiPassword.text.toString())
+                    editor.putString("email", tiEmail.text.toString().trim()) // Elimina los espacios finales
+                    editor.putString("password", tiPassword.text.toString().trim())
 
                     editor.apply()
                     startActivity(inicio)
+                    finish() // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
                 } else {
                     Toast.makeText(this, "Las contraseñas son distintas", Toast.LENGTH_SHORT).show()
                 }
