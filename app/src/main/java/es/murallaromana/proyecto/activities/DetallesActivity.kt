@@ -19,6 +19,7 @@ import es.murallaromana.proyecto.App
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
+import org.w3c.dom.Text
 
 class DetallesActivity : AppCompatActivity() {
 
@@ -31,7 +32,8 @@ class DetallesActivity : AppCompatActivity() {
         binding = ActivityDetallesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
+        var infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
+
 
         if (infoPelicula != null) { // Si el objeto película viene vacío es una nueva película y los edit text están vacíos
             setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
@@ -166,9 +168,12 @@ class DetallesActivity : AppCompatActivity() {
             // Toast.makeText(this, "Personaje borrado", Toast.LENGTH_SHORT).show()
 
             val builder = AlertDialog.Builder(this)
-            val dialog = builder.setTitle("Borrar personaje")
+            val dialog = builder.setTitle("Borrar pelicula")
                 .setMessage("Estás a punto de borrar un peruano")
                 .setPositiveButton("Aceptar") { dialog, id ->
+                    var pelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
+                    App.pelicula.remove(pelicula)
+
                     finish()
                 }
                 .setNegativeButton("Cancelar", null)

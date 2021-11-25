@@ -40,7 +40,7 @@ class PeliculaDaoMockImpl: PeliculaDao {
             "Kingsman: Servicio Secreto",
             "Acción",
             "Matthew Vaughn",
-            "9.5",
+            "9",
             "https://m.media-amazon.com/images/I/81Mi4-Qt4wL._SY445_.jpg",
             "Un veterano agente secreto inglés (Colin Firth) debe entrenar a un joven sin refinar (Taron Egerton), pero que promete convertirse en un competitivo agente gracias a un ultra-programa de entrenamiento, al mismo tiempo que una amenaza global emerge procedente de un genio retorcido. Adaptación del cómic de Mark Millar y Dave Gibbons."
         )
