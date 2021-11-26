@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +30,7 @@ class RegistraActivity : AppCompatActivity() {
         tiPassword = findViewById(R.id.tiPassword)
         tiConfirmar = findViewById(R.id.tiConfirmar)
         tiNombre = findViewById(R.id.tiNombre)
-        tiTelefono = findViewById(R.id.tiTelefono)
+        tiTelefono = findViewById(R.id.tiTelefonoD)
 
         btnNuevoUsuario.setOnClickListener {
             val inicio = Intent(this, LoginActivity::class.java)

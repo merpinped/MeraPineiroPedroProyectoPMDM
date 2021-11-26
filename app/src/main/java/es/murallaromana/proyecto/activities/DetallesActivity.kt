@@ -1,5 +1,7 @@
 package es.murallaromana.proyecto.activities
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -17,6 +19,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.App
 import es.murallaromana.proyecto.R
+import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 import org.w3c.dom.Text
@@ -32,7 +35,7 @@ class DetallesActivity : AppCompatActivity() {
         binding = ActivityDetallesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
+        val infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
 
 
         if (infoPelicula != null) { // Si el objeto película viene vacío es una nueva película y los edit text están vacíos
@@ -44,6 +47,7 @@ class DetallesActivity : AppCompatActivity() {
             binding.etNota.setText(infoPelicula.nota)
             binding.etResumen.setText(infoPelicula.resumen)
             binding.etUrl.setText(infoPelicula.url)
+            binding.etTelefonoD.setText(infoPelicula.telefono)
             Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
         } else { // Si es una nueva película son todos editables
             title = "Nueva Película"
@@ -68,6 +72,9 @@ class DetallesActivity : AppCompatActivity() {
 
             binding.etGenero.isFocusableInTouchMode = true
             binding.etGenero.isCursorVisible = true
+
+            binding.etTelefonoD.isFocusableInTouchMode = true
+            binding.etTelefonoD.isCursorVisible = true
         }
 
         binding.btAnhadir.setOnClickListener() {
@@ -87,6 +94,9 @@ class DetallesActivity : AppCompatActivity() {
                 ) || TextUtils.equals(
                     binding.etResumen.text.toString(),
                     ""
+                ) || TextUtils.equals(
+                    binding.etTelefonoD.text.toString(),
+                    ""
                 )
             ) {
                 Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
@@ -98,12 +108,20 @@ class DetallesActivity : AppCompatActivity() {
                         binding.etDirector.text.toString(),
                         binding.etNota.text.toString(),
                         binding.etUrl.text.toString(),
-                        binding.etResumen.text.toString()
+                        binding.etResumen.text.toString(),
+                        binding.etTelefonoD.text.toString()
                     ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
                 )
 
                 finish()
             }
+        }
+
+        binding.etTelefonoD.setOnClickListener() { // Si clckas en el teléfono del director te lleva al teléfono para llamarle
+            val telefono = binding.etTelefonoD.text.toString()
+            val llamada = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse(telefono)
+            startActivity(llamada)
         }
     }
 
@@ -141,11 +159,14 @@ class DetallesActivity : AppCompatActivity() {
                 binding.etGenero.isFocusableInTouchMode = true
                 binding.etGenero.isCursorVisible = true
 
+                binding.etTelefonoD.isFocusableInTouchMode = true
+                binding.etTelefonoD.isCursorVisible = true
+
                 bandera = false // Un marcador para cambiar el icono
             } else {
                 val builder = AlertDialog.Builder(this)
-                val dialog = builder.setTitle("Editar personaje")
-                    .setMessage("Estás a punto de editar un peruano")
+                val dialog = builder.setTitle("Editar pelicula")
+                    .setMessage("Estás a punto de editar una pelicula")
                     .setPositiveButton("Aceptar") { dialog, id ->
                         item.icon = ContextCompat.getDrawable(this, R.drawable.ic_edit)
                         bandera = true
@@ -156,6 +177,26 @@ class DetallesActivity : AppCompatActivity() {
                         binding.etUrl.isFocusable = false
                         binding.etNota.isFocusable = false
                         binding.etGenero.isFocusable = false
+                        binding.etTelefonoD.isFocusable = false
+
+                        // Borramos la película actual y la substituimos por los nuevos datos
+                        val position: Int? = intent.extras?.get("position") as Int?
+                        if (position != null) {
+                            App.pelicula.removeAt(position)
+                            App.pelicula.add(
+                                Pelicula(
+                                    binding.etTitulo.text.toString(),
+                                    binding.etGenero.text.toString(),
+                                    binding.etDirector.text.toString(),
+                                    binding.etNota.text.toString(),
+                                    binding.etUrl.text.toString(),
+                                    binding.etResumen.text.toString(),
+                                    binding.etTelefonoD.text.toString()
+                                )
+                            )
+
+                            finish()
+                        }
                     }
                     .setNegativeButton("Cancelar", null)
                     .create()
@@ -169,10 +210,12 @@ class DetallesActivity : AppCompatActivity() {
 
             val builder = AlertDialog.Builder(this)
             val dialog = builder.setTitle("Borrar pelicula")
-                .setMessage("Estás a punto de borrar un peruano")
+                .setMessage("Estás a punto de borrar una pelicula")
                 .setPositiveButton("Aceptar") { dialog, id ->
-                    var pelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
-                    App.pelicula.remove(pelicula)
+                    val position: Int? = intent.extras?.get("position") as Int?
+                    if (position != null) {
+                        App.pelicula.removeAt(position)
+                    }
 
                     finish()
                 }

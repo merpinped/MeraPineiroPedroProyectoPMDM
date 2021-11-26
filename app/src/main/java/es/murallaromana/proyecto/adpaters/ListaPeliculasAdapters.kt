@@ -49,6 +49,7 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
             val intent = Intent(holder.itemView.context, DetallesActivity::class.java)
 
             intent.putExtra("pelicula", pelicula)
+            intent.putExtra("position", position)
             holder.itemView.context.startActivity(intent)
         } // Click event, se abre la nueva activity
     }
