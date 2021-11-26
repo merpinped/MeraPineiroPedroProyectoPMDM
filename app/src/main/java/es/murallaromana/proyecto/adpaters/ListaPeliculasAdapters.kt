@@ -12,9 +12,6 @@ import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.activities.DetallesActivity
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
-import android.os.Bundle
-
-
 
 
 class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
@@ -25,6 +22,7 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
         val ivImagen = itemView.findViewById<ImageView>(R.id.ivImagen)
         val tvGenero = itemView.findViewById<TextView>(R.id.tvGeneroDetalles)
         val tvNota = itemView.findViewById<TextView>(R.id.tvNota)
+        val tvTelefono = itemView.findViewById<TextView>(R.id.tvTelefono)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
@@ -40,6 +38,7 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
         holder.tvGenero.setText(pelicula.genero)
         holder.tvDirector.setText(pelicula.director)
         holder.tvNota.setText(pelicula.nota)
+        holder.tvTelefono.setText(pelicula.telefono)
 
         // Libreria picasso
         Picasso.get().load(pelicula.url).into(holder.ivImagen)

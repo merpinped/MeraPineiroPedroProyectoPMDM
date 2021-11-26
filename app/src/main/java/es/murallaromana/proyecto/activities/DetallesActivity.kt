@@ -1,6 +1,7 @@
 package es.murallaromana.proyecto.activities
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,7 +38,6 @@ class DetallesActivity : AppCompatActivity() {
 
         val infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
 
-
         if (infoPelicula != null) { // Si el objeto película viene vacío es una nueva película y los edit text están vacíos
             setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
 
@@ -49,8 +49,13 @@ class DetallesActivity : AppCompatActivity() {
             binding.etUrl.setText(infoPelicula.url)
             binding.etTelefonoD.setText(infoPelicula.telefono)
             Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
+
+            binding.btLlamar.isEnabled = true
         } else { // Si es una nueva película son todos editables
             title = "Nueva Película"
+
+            binding.btLlamar.isEnabled = false // No deja llamar mientras añades una película
+
             Picasso.get()
                 .load("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2011/07/25/110725144827_sp_question_mark_304x171_other_nocredit.jpg")
                 .into(binding.ivImagen)
@@ -117,10 +122,11 @@ class DetallesActivity : AppCompatActivity() {
             }
         }
 
-        binding.etTelefonoD.setOnClickListener() { // Si clckas en el teléfono del director te lleva al teléfono para llamarle
-            val telefono = binding.etTelefonoD.text.toString()
-            val llamada = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse(telefono)
+        binding.btLlamar.setOnClickListener() { // Si clickas en el teléfono del director te lleva al teléfono para llamarle
+            val telefono = "+34" + binding.etTelefonoD.text.toString()
+            val llamada = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telefono, null))
+
+//            intent.data = Uri.parse(telefono)
             startActivity(llamada)
         }
     }
@@ -139,6 +145,8 @@ class DetallesActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.accion_editar) { // Guardar, action bar
             if (bandera) {
+                binding.btLlamar.isEnabled = false
+
                 item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_check_24)
 
                 binding.etTitulo.isFocusableInTouchMode = true
@@ -206,23 +214,23 @@ class DetallesActivity : AppCompatActivity() {
 
             return true
         } else if (item.itemId == R.id.accion_borrar) { // Borrar, action bar
-            // Toast.makeText(this, "Personaje borrado", Toast.LENGTH_SHORT).show()
+            if (bandera) {
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle("Borrar pelicula")
+                    .setMessage("Estás a punto de borrar una pelicula")
+                    .setPositiveButton("Aceptar") { dialog, id ->
+                        val position: Int? = intent.extras?.get("position") as Int?
+                        if (position != null) {
+                            App.pelicula.removeAt(position)
+                        }
 
-            val builder = AlertDialog.Builder(this)
-            val dialog = builder.setTitle("Borrar pelicula")
-                .setMessage("Estás a punto de borrar una pelicula")
-                .setPositiveButton("Aceptar") { dialog, id ->
-                    val position: Int? = intent.extras?.get("position") as Int?
-                    if (position != null) {
-                        App.pelicula.removeAt(position)
+                        finish()
                     }
+                    .setNegativeButton("Cancelar", null)
+                    .create()
 
-                    finish()
-                }
-                .setNegativeButton("Cancelar", null)
-                .create()
-
-            dialog.show()
+                dialog.show()
+            }
 
             return true
         } else {

@@ -191,12 +191,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tiTelefonoD"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="273dp"
+            android:layout_height="55dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tiDirector">
 
@@ -209,7 +207,22 @@
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:hint="@string/telefono_director" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btLlamar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/azul_oscuro"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintStart_toEndOf="@+id/tiTelefonoD"
+            app:layout_constraintTop_toBottomOf="@+id/tiDirector"
+            android:src="@drawable/ic_phone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
