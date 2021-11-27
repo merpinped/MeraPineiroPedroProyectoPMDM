@@ -35,19 +35,21 @@ class LoginActivity : AppCompatActivity() {
 
         btnRegistrar = findViewById(R.id.btnUusario)
         btnRegistrar.setOnClickListener() {
-            if (!gmail.equals("usuario@gmail.com") && !password.equals("contraseña")) {
-                val intent = Intent(this, RegistraActivity::class.java)
-                startActivity(intent)
-                finish() // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
-            } else {
-                Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show() // Si es el usuario y la contraseña de base te muestra un mensaje de incorrecto
-            }
+            val intent = Intent(this, RegistraActivity::class.java)
+            startActivity(intent)
+             // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
         }
 
         btnLog = findViewById(R.id.btnLog)
         btnLog.setOnClickListener() {
-            val intent = Intent(this, PeliculaActivity::class.java)
-            startActivity(intent)
+            if (!gmail.equals("usuario@gmail.com") && !password.equals("contraseña")) {
+                val intent = Intent(this, PeliculaActivity::class.java)
+                startActivity(intent)
+                finish() // Despues de loguearte si pulsas atras desde la lista se cierra la app
+            } else {
+                Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT)
+                    .show() // Si es el usuario y la contraseña de base te muestra un mensaje de incorrecto
+            }
         }
     }
 }

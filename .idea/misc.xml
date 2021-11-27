@@ -3,36 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_add.xml" value="0.3828125" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_detalles.xml" value="0.36666666666666664" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_pelicula.xml" value="0.36666666666666664" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_registra.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/email.xml" value="0.3223684210526316" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/email_icon.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.3223684210526316" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.3223684210526316" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_edit.xml" value="0.3223684210526316" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_email.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_logo_background.xml" value="0.1868421052631579" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.324609375" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.275" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_detalles.xml" value="0.33" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_detalles_scrolling.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_layout_based.xml" value="0.3087719298245614" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/item_pelicula.xml" value="0.33" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/lista_peliculas_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_pelicula.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_pelicula.xml" value="0.33" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_registra.xml" value="0.33" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_scroll_based.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/content_scrolling.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/item_pelicula.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_pelicula.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_pelicula_editando.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_scrolling.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.18640350877192982" />
-        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_logo_round.xml" value="0.18640350877192982" />
+        <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_registra.xml" value="0.22" />
       </map>
     </option>
   </component>

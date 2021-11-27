@@ -54,19 +54,28 @@ class RegistraActivity : AppCompatActivity() {
                         tiConfirmar.text.toString()
                     )
                 ) { // Comprueba si confirmar y password son iguales
+                    if (tiEmail.text.toString().contains("@gmail.com") && tiEmail.text.toString()
+                            .split("@")[0] != "" // Comprueba si el formato del gmail es correcto
+                    ) {
+                        val sharedPref = getSharedPreferences(
+                            "datos",
+                            Context.MODE_PRIVATE
+                        ) // Guardar objetos clave valor
+                        val editor = sharedPref.edit() // Iniciamos una acción
 
-                    val sharedPref = getSharedPreferences(
-                        "datos",
-                        Context.MODE_PRIVATE
-                    ) // Guardar objetos clave valor
-                    val editor = sharedPref.edit() // Iniciamos una acción
+                        editor.putString(
+                            "email",
+                            tiEmail.text.toString().trim()
+                        ) // Elimina los espacios finales
+                        editor.putString("password", tiPassword.text.toString().trim())
 
-                    editor.putString("email", tiEmail.text.toString().trim()) // Elimina los espacios finales
-                    editor.putString("password", tiPassword.text.toString().trim())
+                        editor.apply()
+                        startActivity(inicio)
+                        finish() // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
 
-                    editor.apply()
-                    startActivity(inicio)
-                    finish() // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
+                    } else {
+                        Toast.makeText(this, "Formato gmail incorrecto", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     Toast.makeText(this, "Las contraseñas son distintas", Toast.LENGTH_SHORT).show()
                 }

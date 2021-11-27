@@ -82,46 +82,6 @@ class DetallesActivity : AppCompatActivity() {
             binding.etTelefonoD.isCursorVisible = true
         }
 
-        binding.btAnhadir.setOnClickListener() {
-            if (TextUtils.equals(
-                    binding.etTitulo.text.toString(),
-                    ""
-                ) || TextUtils.equals(binding.etGenero.text.toString(), "") || TextUtils.equals(
-                    binding.etDirector.text.toString(),
-                    ""
-                ) || TextUtils.equals(
-                    binding.etNota.text.toString(),
-                    ""
-                )
-                || TextUtils.equals(
-                    binding.etUrl.text.toString(),
-                    ""
-                ) || TextUtils.equals(
-                    binding.etResumen.text.toString(),
-                    ""
-                ) || TextUtils.equals(
-                    binding.etTelefonoD.text.toString(),
-                    ""
-                )
-            ) {
-                Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
-            } else {
-                App.pelicula.add(
-                    Pelicula(
-                        binding.etTitulo.text.toString(),
-                        binding.etGenero.text.toString(),
-                        binding.etDirector.text.toString(),
-                        binding.etNota.text.toString(),
-                        binding.etUrl.text.toString(),
-                        binding.etResumen.text.toString(),
-                        binding.etTelefonoD.text.toString()
-                    ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
-                )
-
-                finish()
-            }
-        }
-
         binding.btLlamar.setOnClickListener() { // Si clickas en el teléfono del director te lleva al teléfono para llamarle
             val telefono = "+34" + binding.etTelefonoD.text.toString()
             val llamada = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telefono, null))
@@ -134,9 +94,8 @@ class DetallesActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if (title != "Nueva Película") {
             menuInflater.inflate(R.menu.menu_detalles_pelicula, menu)
-            binding.btAnhadir.isVisible = false
         } else {
-            binding.btAnhadir.isVisible = true
+            menuInflater.inflate(R.menu.lista_peliculas_menu, menu)
         }
 
         return true
@@ -230,6 +189,46 @@ class DetallesActivity : AppCompatActivity() {
                     .create()
 
                 dialog.show()
+            }
+
+            return true
+        } else if (item.itemId == R.id.accion_add) { // Añade una nueva película
+            if (TextUtils.equals(
+                    binding.etTitulo.text.toString(),
+                    ""
+                ) || TextUtils.equals(binding.etGenero.text.toString(), "") || TextUtils.equals(
+                    binding.etDirector.text.toString(),
+                    ""
+                ) || TextUtils.equals(
+                    binding.etNota.text.toString(),
+                    ""
+                )
+                || TextUtils.equals(
+                    binding.etUrl.text.toString(),
+                    ""
+                ) || TextUtils.equals(
+                    binding.etResumen.text.toString(),
+                    ""
+                ) || TextUtils.equals(
+                    binding.etTelefonoD.text.toString(),
+                    ""
+                )
+            ) {
+                Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
+            } else {
+                App.pelicula.add(
+                    Pelicula(
+                        binding.etTitulo.text.toString(),
+                        binding.etGenero.text.toString(),
+                        binding.etDirector.text.toString(),
+                        binding.etNota.text.toString(),
+                        binding.etUrl.text.toString(),
+                        binding.etResumen.text.toString(),
+                        binding.etTelefonoD.text.toString()
+                    ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
+                )
+
+                finish()
             }
 
             return true

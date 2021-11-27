@@ -3,7 +3,10 @@ package es.murallaromana.proyecto.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -30,27 +33,12 @@ class PeliculaActivity : AppCompatActivity() {
         val listaPeliculas = App.pelicula
 
         // Creo los componentes del RecyclerView
-        val layoutManager =  LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
         val adapter = ListaPeliculasAdapters(listaPeliculas)
 
         // Asocio el RVIEW con sus componentes
         binding.rvPeliculas.adapter = adapter
         binding.rvPeliculas.layoutManager = layoutManager
-
-        binding.rvPeliculas.setHasFixedSize(true)
-
-        // Dividir el contenido de recycle view
-        val dividerItemDecoration = DividerItemDecoration(
-            binding.rvPeliculas.context,
-            layoutManager.orientation
-        )
-        binding.rvPeliculas.addItemDecoration(dividerItemDecoration)
-
-        btnMas = findViewById(R.id.btnMas)
-        btnMas.setOnClickListener() {
-            val intent = Intent(this, DetallesActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onResume() { // Carga las imagenes cuando vuelve a la activity de pelicula
@@ -58,5 +46,21 @@ class PeliculaActivity : AppCompatActivity() {
 
         val adapter = ListaPeliculasAdapters(App.pelicula)
         binding.rvPeliculas.adapter = adapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.lista_peliculas_menu, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.accion_add) {
+            val intent = Intent(this, DetallesActivity::class.java)
+            startActivity(intent)
+            return true
+        } else {
+            return super.onOptionsItemSelected(item)
+        }
     }
 }
