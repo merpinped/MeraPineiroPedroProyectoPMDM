@@ -60,7 +60,7 @@ class RegistraActivity : AppCompatActivity() {
                         tiConfirmar.text.toString()
                     )
                 ) { // Comprueba si confirmar y password son iguales
-                    if (tiEmail.text.toString().contains("@gmail.com") || tiEmail.text.toString()
+                    if (tiEmail.text.toString().contains("@gmail.com") && tiEmail.text.toString()
                             .split("@")[0] != "" // Comprueba si el formato del gmail es correcto
                     ) {
                         val sharedPref = getSharedPreferences(

@@ -190,6 +190,8 @@
                 android:id="@+id/etTelefonoD"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="phone"
+                android:maxLength="9"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:focusable="false"

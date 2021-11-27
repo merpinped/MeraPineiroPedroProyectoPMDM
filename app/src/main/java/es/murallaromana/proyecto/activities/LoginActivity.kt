@@ -37,7 +37,6 @@ class LoginActivity : AppCompatActivity() {
         btnRegistrar.setOnClickListener() {
             val intent = Intent(this, RegistraActivity::class.java)
             startActivity(intent)
-             // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
         }
 
         btnLog = findViewById(R.id.btnLog)
@@ -47,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish() // Despues de loguearte si pulsas atras desde la lista se cierra la app
             } else {
-                Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Usuario o contraseña por defecto", Toast.LENGTH_SHORT)
                     .show() // Si es el usuario y la contraseña de base te muestra un mensaje de incorrecto
             }
         }
