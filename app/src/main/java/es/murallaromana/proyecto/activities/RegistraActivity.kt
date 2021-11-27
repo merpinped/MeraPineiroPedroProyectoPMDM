@@ -38,14 +38,20 @@ class RegistraActivity : AppCompatActivity() {
             if (TextUtils.equals(
                     tiEmail.text.toString(),
                     ""
-                ) || TextUtils.equals(tiPassword.text.toString(), "") && TextUtils.equals(
+                ) || TextUtils.equals(
+                    tiPassword.text.toString(),
+                    ""
+                ) || TextUtils.equals(
                     tiConfirmar.text.toString(),
                     ""
                 ) || TextUtils.equals(
                     tiNombre.text.toString(),
                     ""
                 )
-                || TextUtils.equals(tiTelefono.text.toString(), "")
+                || TextUtils.equals(
+                    tiTelefono.text.toString(),
+                    ""
+                )
             ) {
                 Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
             } else {
@@ -67,7 +73,10 @@ class RegistraActivity : AppCompatActivity() {
                             "email",
                             tiEmail.text.toString().trim()
                         ) // Elimina los espacios finales
-                        editor.putString("password", tiPassword.text.toString().trim())
+                        editor.putString(
+                            "password",
+                            tiPassword.text.toString().trim()
+                        )
 
                         editor.apply()
                         startActivity(inicio)
