@@ -50,7 +50,7 @@ class DetallesActivity : AppCompatActivity() {
             binding.etNota.setText(infoPelicula.nota)
             binding.etResumen.setText(infoPelicula.resumen)
             binding.etUrl.setText(infoPelicula.url)
-            binding.etTelefonoD.setText(infoPelicula.telefono)
+            binding.etTelefonoD.setText(infoPelicula.telefono.replace(" ", ""))
             Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
 
             binding.btLlamar.isEnabled = true
