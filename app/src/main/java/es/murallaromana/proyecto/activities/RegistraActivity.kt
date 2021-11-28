@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.textfield.TextInputEditText
 import es.murallaromana.proyecto.R
 
@@ -23,6 +24,8 @@ class RegistraActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registra)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // Desactiva el modo oscuro
 
         setTitle("Nuevo ususario")
         btnNuevoUsuario = findViewById(R.id.btnRegistro)
