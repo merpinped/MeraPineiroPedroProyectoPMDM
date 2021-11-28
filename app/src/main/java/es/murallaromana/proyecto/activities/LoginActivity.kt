@@ -16,6 +16,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnLog: Button
     private lateinit var tiEmail: TextInputEditText
     private lateinit var tiPassword: TextInputEditText
+    private lateinit var gmail: String
+    private lateinit var password: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,24 +29,30 @@ class LoginActivity : AppCompatActivity() {
         tiEmail = findViewById(R.id.tiEmail)
         tiPassword = findViewById(R.id.tiPassword)
 
-        val gmail = sharedPreferences.getString("email", "usuario@gmail.com")
-        val password = sharedPreferences.getString("password", "contraseña")
+        gmail = sharedPreferences.getString("email", "usuario@gmail.com").toString()
+        password = sharedPreferences.getString("password", "contraseña").toString()
 
-        tiEmail.setText(gmail?.trim()) // Elimina los espacios en blanco finales
-        tiPassword.setText(password?.trim())
+        tiEmail.setText(gmail.trim()) // Elimina los espacios en blanco finales
+        tiPassword.setText(password.trim())
 
         btnRegistrar = findViewById(R.id.btnUusario)
         btnRegistrar.setOnClickListener() {
             val intent = Intent(this, RegistraActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         btnLog = findViewById(R.id.btnLog)
         btnLog.setOnClickListener() {
-            if (!gmail.equals("usuario@gmail.com") && !password.equals("contraseña")) {
-                val intent = Intent(this, PeliculaActivity::class.java)
-                startActivity(intent)
-                finish() // Despues de loguearte si pulsas atras desde la lista se cierra la app
+            if (gmail != "usuario@gmail.com" && password != "contraseña") {
+                if (tiEmail.text.toString() == gmail && tiPassword.text.toString() == password) {
+                    val intent = Intent(this, PeliculaActivity::class.java)
+                    startActivity(intent)
+                    finish() // Despues de loguearte si pulsas atras desde la lista se cierra la app
+                } else {
+                    Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT)
+                        .show()
+                }
             } else {
                 Toast.makeText(this, "Usuario o contraseña por defecto", Toast.LENGTH_SHORT)
                     .show() // Si es el usuario y la contraseña de base te muestra un mensaje de incorrecto

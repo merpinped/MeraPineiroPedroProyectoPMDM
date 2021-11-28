@@ -34,6 +34,7 @@
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black"
                 android:textColorHint="@color/black"
+                android:inputType="textEmailAddress"
                 android:textColorLink="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
