@@ -120,7 +120,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiTelefonoD"
                 android:maxLength="9"
-                android:inputType="number"
+                android:inputType="phone"
                 android:ems="9"
                 android:singleLine="true"
                 android:layout_width="match_parent"
