@@ -22,7 +22,8 @@
             android:layout_marginStart="1dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/tvGeneroDetalles"
@@ -118,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:text="TextView"
+            android:text="@string/textView_default"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/tvTelefonoA"
             app:layout_constraintTop_toBottomOf="@+id/tvDirectorDetalles" />

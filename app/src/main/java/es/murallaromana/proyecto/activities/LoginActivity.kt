@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // Desactiva el modo oscuro
 
-        setTitle("Inicio de sesión")
+        title = "Inicio de sesión"
         val sharedPreferences = getSharedPreferences("datos", Context.MODE_PRIVATE)
 
         tiEmail = findViewById(R.id.tiEmail)

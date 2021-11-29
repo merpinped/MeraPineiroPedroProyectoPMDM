@@ -110,4 +110,5 @@
     <string name="resumen">Resumen:</string>
     <string name="url_imagen">Url (Imagen):</string>
     <string name="telefono_director">Teléfono:</string>
+    <string name="todo">TODO</string>
 </resources>

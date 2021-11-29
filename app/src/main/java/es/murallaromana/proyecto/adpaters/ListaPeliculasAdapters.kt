@@ -17,12 +17,12 @@ import es.murallaromana.proyecto.modelos.entidades.Pelicula
 class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
 
     class PeliculasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val tvDirector = itemView.findViewById<TextView>(R.id.tvDirectorDetalles)
-        val tvTitulo = itemView.findViewById<TextView>(R.id.tvTituloDetalles)
-        val ivImagen = itemView.findViewById<ImageView>(R.id.ivImagen)
-        val tvGenero = itemView.findViewById<TextView>(R.id.tvGeneroDetalles)
-        val tvNota = itemView.findViewById<TextView>(R.id.tvNota)
-        val tvTelefono = itemView.findViewById<TextView>(R.id.tvTelefono)
+        val tvDirector: TextView = itemView.findViewById(R.id.tvDirectorDetalles)
+        val tvTitulo: TextView = itemView.findViewById(R.id.tvTituloDetalles)
+        val ivImagen: ImageView = itemView.findViewById(R.id.ivImagen)
+        val tvGenero: TextView = itemView.findViewById(R.id.tvGeneroDetalles)
+        val tvNota: TextView = itemView.findViewById(R.id.tvNota)
+        val tvTelefono: TextView = itemView.findViewById(R.id.tvTelefono)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
@@ -32,13 +32,13 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
     }
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
-        val pelicula = peliculas.get(position)
+        val pelicula = peliculas[position]
 
-        holder.tvTitulo.setText(pelicula.nombre)
-        holder.tvGenero.setText(pelicula.genero)
-        holder.tvDirector.setText(pelicula.director)
-        holder.tvNota.setText(pelicula.nota)
-        holder.tvTelefono.setText(pelicula.telefono)
+        holder.tvTitulo.text = pelicula.nombre
+        holder.tvGenero.text = pelicula.genero
+        holder.tvDirector.text = pelicula.director
+        holder.tvNota.text = pelicula.nota
+        holder.tvTelefono.text = pelicula.telefono
 
         // Libreria picasso
         Picasso.get().load(pelicula.url).into(holder.ivImagen)

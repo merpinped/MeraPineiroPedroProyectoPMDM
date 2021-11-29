@@ -42,7 +42,7 @@ class DetallesActivity : AppCompatActivity() {
         val infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
 
         if (infoPelicula != null) { // Si el objeto película viene vacío es una nueva película y los edit text están vacíos
-            setTitle(infoPelicula.nombre) // Cambiamos el título de la pantalla
+            title = infoPelicula.nombre // Cambiamos el título de la pantalla
 
             binding.etTitulo.setText(infoPelicula.nombre)
             binding.etDirector.setText(infoPelicula.director)
