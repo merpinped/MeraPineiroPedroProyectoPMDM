@@ -32,9 +32,6 @@
             android:name=".activities.RegistraActivity"
             android:exported="true"
             android:windowSoftInputMode="stateHidden">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.LoginActivity" />
         </activity>
         <activity
             android:name=".activities.LoginActivity"
