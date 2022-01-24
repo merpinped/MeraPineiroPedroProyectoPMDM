@@ -1,7 +1,6 @@
 package es.murallaromana.proyecto.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,6 +15,7 @@ import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityPeliculaBinding
 import es.murallaromana.proyecto.modelos.dao.PeliculaDaoMockImpl
+import androidx.appcompat.app.AppCompatActivity
 
 
 class PeliculaActivity : AppCompatActivity() {
@@ -25,9 +25,6 @@ class PeliculaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // Desactiva el modo oscuro
-
         // Inflo las vistas
         binding = ActivityPeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)

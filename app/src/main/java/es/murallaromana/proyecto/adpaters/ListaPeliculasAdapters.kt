@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.activities.DetallesActivity
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
@@ -41,7 +40,7 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
         holder.tvTelefono.text = pelicula.telefono
 
         // Libreria picasso
-        Picasso.get().load(pelicula.url).into(holder.ivImagen)
+        //Picasso.get().load(pelicula.url).into(holder.ivImagen)
 
         holder.itemView.setOnClickListener {
             Toast.makeText(holder.itemView.context, holder.tvTitulo.text, Toast.LENGTH_SHORT).show()
