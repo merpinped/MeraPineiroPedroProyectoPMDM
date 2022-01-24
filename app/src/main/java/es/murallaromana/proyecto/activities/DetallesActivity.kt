@@ -1,30 +1,21 @@
 package es.murallaromana.proyecto.activities
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.App
 import es.murallaromana.proyecto.R
-import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
-import org.w3c.dom.Text
 
 class DetallesActivity : AppCompatActivity() {
 
@@ -98,14 +89,14 @@ class DetallesActivity : AppCompatActivity() {
         if (title != "Nueva Película") {
             menuInflater.inflate(R.menu.menu_detalles_pelicula, menu)
         } else {
-            menuInflater.inflate(R.menu.lista_peliculas_menu, menu)
+            menuInflater.inflate(R.menu.menu_crear_pelicula, menu)
         }
 
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.accion_editar) { // Guardar, action bar
+        if (item.itemId == R.id.accion_editar) { // Editar (Guardar)
             if (bandera) {
                 binding.btLlamar.isEnabled = false
 
@@ -132,7 +123,8 @@ class DetallesActivity : AppCompatActivity() {
                 binding.etTelefonoD.isFocusableInTouchMode = true
                 binding.etTelefonoD.isCursorVisible = true
 
-                bandera = false // Un marcador para cambiar el icono
+                bandera =
+                    false // Un marcador para cambiar el icono de edición y de aceptar la edición
             } else {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("Editar pelicula")
@@ -219,19 +211,28 @@ class DetallesActivity : AppCompatActivity() {
             ) {
                 Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
             } else {
-                App.pelicula.add(
-                    Pelicula(
-                        binding.etTitulo.text.toString(),
-                        binding.etGenero.text.toString(),
-                        binding.etDirector.text.toString(),
-                        binding.etNota.text.toString(),
-                        binding.etUrl.text.toString(),
-                        binding.etResumen.text.toString(),
-                        binding.etTelefonoD.text.toString()
-                    ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
-                )
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle("Crear nueva pelicula")
+                    .setMessage("Estás a punto de crear una pelicula")
+                    .setPositiveButton("Aceptar") { dialog, id ->
+                        App.pelicula.add(
+                            Pelicula(
+                                binding.etTitulo.text.toString(),
+                                binding.etGenero.text.toString(),
+                                binding.etDirector.text.toString(),
+                                binding.etNota.text.toString(),
+                                binding.etUrl.text.toString(),
+                                binding.etResumen.text.toString(),
+                                binding.etTelefonoD.text.toString()
+                            ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
+                        )
 
-                finish()
+                        finish()
+                    }
+                    .setNegativeButton("Cancelar", null)
+                    .create()
+
+                dialog.show()
             }
 
             return true
