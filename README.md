@@ -7,6 +7,6 @@
 3. Lista películas
 4. Detalles películas
 
-## 1. Registro
+# 1. Registro
 
 ![Pantalla de registro](/Imagenes/pantallaRegistro.png)
