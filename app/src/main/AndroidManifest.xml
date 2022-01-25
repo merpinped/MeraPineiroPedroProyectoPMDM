@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".App"
+        android:name=".modelos.dao.App"
         android:icon="@mipmap/ic_movies"
         android:label="Peliculas"
         android:roundIcon="@mipmap/ic_movies_circle"

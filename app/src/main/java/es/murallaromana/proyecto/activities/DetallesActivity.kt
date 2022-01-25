@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.squareup.picasso.Picasso
-import es.murallaromana.proyecto.App
+import es.murallaromana.proyecto.modelos.dao.App
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
@@ -153,7 +153,8 @@ class DetallesActivity : AppCompatActivity() {
                                     binding.etNota.text.toString(),
                                     binding.etUrl.text.toString(),
                                     binding.etResumen.text.toString(),
-                                    binding.etTelefonoD.text.toString()
+                                    binding.etTelefonoD.text.toString(),
+                                    "120" // Cambiarlo en la version final
                                 )
                             )
 
@@ -223,7 +224,8 @@ class DetallesActivity : AppCompatActivity() {
                                 binding.etNota.text.toString(),
                                 binding.etUrl.text.toString(),
                                 binding.etResumen.text.toString(),
-                                binding.etTelefonoD.text.toString()
+                                binding.etTelefonoD.text.toString(),
+                                "120" // Cambiarlo en la version final
                             ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
                         )
 
