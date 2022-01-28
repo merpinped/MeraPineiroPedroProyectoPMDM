@@ -1,5 +1,6 @@
 package es.murallaromana.proyecto.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,7 @@ class PeliculaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPeliculaBinding
     private lateinit var btnMas: FloatingActionButton
+    private lateinit var listaPeliculas: List<Pelicula>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,20 +33,22 @@ class PeliculaActivity : AppCompatActivity() {
         binding = ActivityPeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sharedPreferences = getSharedPreferences("datos", Context.MODE_PRIVATE)
+
         // Retrofit
         val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas()
         llamadaApi.enqueue(object : Callback<List<Pelicula>> {
             override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
-                Toast.makeText(binding.root.context, response.body().toString(), Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@PeliculaActivity, response.body().toString(), Toast.LENGTH_SHORT).show()
+                val listaPeliculas2 = response.body()
             }
 
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
-                Log.d("Prueba", t.message.toString())
+                Log.d("response: failure", t.message.toString())
             }
         })
 
         title = "Peliculas"
-        // Obtengo los datos de las peliculas
         val listaPeliculas = App.pelicula
 
         // Creo los componentes del RecyclerView

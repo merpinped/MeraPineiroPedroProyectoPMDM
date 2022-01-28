@@ -1,15 +1,26 @@
 package es.murallaromana.proyecto.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.textfield.TextInputEditText
 import es.murallaromana.proyecto.R
+import es.murallaromana.proyecto.RetrofitClient
+import es.murallaromana.proyecto.modelos.dao.retrofit.UserService
+import es.murallaromana.proyecto.modelos.entidades.Token
+import es.murallaromana.proyecto.modelos.entidades.Usuario
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class RegistraActivity : AppCompatActivity() {
@@ -27,7 +38,7 @@ class RegistraActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // Desactiva el modo oscuro
 
-        setTitle("Nuevo ususario")
+        title = "Nuevo ususario"
         btnNuevoUsuario = findViewById(R.id.btnRegistro)
         tiEmail = findViewById(R.id.tiEmail)
         tiPassword = findViewById(R.id.tiPassword)
@@ -36,7 +47,6 @@ class RegistraActivity : AppCompatActivity() {
         tiTelefono = findViewById(R.id.tiTelefonoD)
 
         btnNuevoUsuario.setOnClickListener {
-            val inicio = Intent(this, LoginActivity::class.java)
             // Comprueba si todos los campos estan completos
             if (TextUtils.equals(
                     tiEmail.text.toString(),
@@ -66,25 +76,26 @@ class RegistraActivity : AppCompatActivity() {
                     if (tiEmail.text.toString().contains("@gmail.com") && tiEmail.text.toString()
                             .split("@")[0] != "" // Comprueba si el formato del gmail es correcto
                     ) {
-                        val sharedPref = getSharedPreferences(
-                            "datos",
-                            Context.MODE_PRIVATE
-                        ) // Guardar objetos clave valor
-                        val editor = sharedPref.edit() // Iniciamos una acción
+                        val u = Usuario(tiEmail.text.toString(), tiPassword.text.toString())
 
-                        editor.putString(
-                            "email",
-                            tiEmail.text.toString().trim()
-                        ) // Elimina los espacios finales
-                        editor.putString(
-                            "password",
-                            tiPassword.text.toString().trim()
-                        )
+                        val registroCall = RetrofitClient.apiRetrofit.signup(u)
 
-                        editor.apply()
-                        startActivity(inicio)
-                        finish() // Cierra la acitvity para que no quede guardada y poder utilizar el shared pref
+                        registroCall.enqueue(object : Callback<Unit> {
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Log.d("respuesta: onFailure", t.toString())
+                            }
 
+                            @SuppressLint("CommitPrefEdits")
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                                Log.d("respuesta: onResponse", response.toString())
+
+                                if (response.code() > 299 || response.code() < 200) {
+                                    Toast.makeText(this@RegistraActivity, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    Toast.makeText(this@RegistraActivity, "Usuario registrado", Toast.LENGTH_SHORT).show()
+                                    onBackPressed()
+                                }
+                            }})
                     } else {
                         Toast.makeText(this, "Formato gmail incorrecto", Toast.LENGTH_SHORT).show()
                     }
