@@ -38,10 +38,14 @@ class DetallesActivity : AppCompatActivity() {
             binding.etTitulo.setText(infoPelicula.nombre)
             binding.etDirector.setText(infoPelicula.director)
             binding.etGenero.setText(infoPelicula.genero)
-            binding.etNota.setText(infoPelicula.nota)
+            binding.etNota.setText(infoPelicula.nota.toString())
             binding.etResumen.setText(infoPelicula.resumen)
             binding.etUrl.setText(infoPelicula.url)
-            binding.etTelefonoD.setText(infoPelicula.telefono.replace(" ", ""))
+
+            if(!infoPelicula.telefono.isEmpty()) {
+                binding.etTelefonoD.setText(infoPelicula.telefono.replace(" ", ""))
+            }
+
             Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
 
             binding.btLlamar.isEnabled = true
@@ -123,8 +127,7 @@ class DetallesActivity : AppCompatActivity() {
                 binding.etTelefonoD.isFocusableInTouchMode = true
                 binding.etTelefonoD.isCursorVisible = true
 
-                bandera =
-                    false // Un marcador para cambiar el icono de edición y de aceptar la edición
+                bandera = false // Un marcador para cambiar el icono de edición y de aceptar la edición
             } else {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("Editar pelicula")
@@ -150,7 +153,7 @@ class DetallesActivity : AppCompatActivity() {
                                     binding.etTitulo.text.toString(),
                                     binding.etGenero.text.toString(),
                                     binding.etDirector.text.toString(),
-                                    binding.etNota.text.toString(),
+                                    binding.etNota.text.toString().toDouble(),
                                     binding.etUrl.text.toString(),
                                     binding.etResumen.text.toString(),
                                     binding.etTelefonoD.text.toString(),
@@ -221,7 +224,7 @@ class DetallesActivity : AppCompatActivity() {
                                 binding.etTitulo.text.toString(),
                                 binding.etGenero.text.toString(),
                                 binding.etDirector.text.toString(),
-                                binding.etNota.text.toString(),
+                                binding.etNota.text.toString().toDouble(),
                                 binding.etUrl.text.toString(),
                                 binding.etResumen.text.toString(),
                                 binding.etTelefonoD.text.toString(),

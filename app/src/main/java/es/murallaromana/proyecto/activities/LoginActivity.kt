@@ -44,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener() {
             val u = Usuario(tiEmail.text.toString(), tiPassword.text.toString())
             val loginCall = RetrofitClient.apiRetrofit.login(u)
-
             loginCall.enqueue(object : Callback<Token> {
                 override fun onFailure(call: Call<Token>, t: Throwable) {
                     Log.d("respuesta: onFailure", t.toString())
@@ -67,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
 
                         val editor = sharedPreferences.edit()
                         editor.putString("token", token)
+                        editor.apply()
 
                         val inicio = Intent(this@LoginActivity, PeliculaActivity::class.java)
                         startActivity(inicio)

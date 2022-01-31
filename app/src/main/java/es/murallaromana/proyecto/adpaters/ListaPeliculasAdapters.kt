@@ -37,7 +37,7 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
         holder.tvTitulo.text = pelicula.nombre
         holder.tvGenero.text = pelicula.genero
         holder.tvDirector.text = pelicula.director
-        holder.tvNota.text = pelicula.nota
+        holder.tvNota.text = pelicula.nota.toString()
         holder.tvTelefono.text = pelicula.telefono
 
         // Libreria picasso

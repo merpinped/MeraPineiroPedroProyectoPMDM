@@ -5,10 +5,7 @@ import es.murallaromana.proyecto.modelos.entidades.Pelicula
 import es.murallaromana.proyecto.modelos.entidades.Token
 import es.murallaromana.proyecto.modelos.entidades.Usuario
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.HeaderMap
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface UserService {
     @POST("users/signup")
@@ -18,5 +15,5 @@ interface UserService {
     fun login(@Body user: Usuario): Call<Token>
 
     @GET("movies")
-        fun getPeliculas(): Call<List<Pelicula>>
+        fun getPeliculas(@Header("Authorization") token: String?): Call<MutableList<Pelicula>>
 }

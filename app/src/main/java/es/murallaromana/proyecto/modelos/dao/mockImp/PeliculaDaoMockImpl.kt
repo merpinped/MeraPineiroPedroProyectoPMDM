@@ -1,4 +1,4 @@
-package es.murallaromana.proyecto.modelos.dao
+package es.murallaromana.proyecto.modelos.dao.mockImp
 
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
@@ -8,7 +8,7 @@ class PeliculaDaoMockImpl : PeliculaDao {
             "Titanic",
             "Romance",
             "Steven Spielberg",
-            "7",
+            7.1,
             "https://es.web.img3.acsta.net/medias/nmedia/18/86/91/41/19870073.jpg",
             "Jack (DiCaprio), un joven artista, en una partida de cartas gana un pasaje para América, en el Titanic, el trasatlántico más grande y seguro jamás construido. A bordo, conoce a Rose (Kate Winslet), una joven de una buena familia venida a menos que va a contraer un matrimonio de conveniencia con Cal (Billy Zane), un millonario engreído a quien sólo interesa el prestigioso apellido de su prometida. Jack y Rose se enamoran, pero Cal y la madre de Rose ponen todo tipo de trabas a su relación. Inesperadamente, un inmenso iceberg pone en peligro la vida de los pasajeros.",
             "666777888",
@@ -18,7 +18,7 @@ class PeliculaDaoMockImpl : PeliculaDao {
             "El Hobbit: un viaje inesperado",
             "Fantasía",
             "Peter Jackson",
-            "9",
+            9.1,
             "https://estatico.emisiondof6.com/recorte/n/dispficha/F3910707?od[]=Z1V:M_V",
             "La aventura cuenta el viaje de Bilbo Bolsón, quien se ve arrastrado a una épica búsqueda que le llevará a reclamar el reino que años atrás perdieron los enanos a manos del temible dragón Smaug. Sin verlo venir, y convencido por el mago Gandalf el Gris, Bilbo termina formando parte de una compañía de 13 enanos liderados por el legendario guerrero Thorin Escudo de Roble. Su viaje les llevará a lo salvaje, a través de tierras peligrosas infestadas de trasgos, orcos y huangos mortíferos, así como de una misteriosa y siniestra criatura conocida como El Nigromante.\n" +
                     "\n" +
@@ -32,7 +32,7 @@ class PeliculaDaoMockImpl : PeliculaDao {
             "Pulp Fiction",
             "Thriller",
             "Quentin Tarantino",
-            "10",
+            10.0,
             "https://static.posters.cz/image/750/posters/pulp-fiction-cover-i1288.jpg",
             "Jules Winnfield (Samuel L. Jackson, Jackie Brown) y Vincent Vega (John Travolta, Grease) son dos asesinos a sueldo que trabajan a las órdenes del temido gángster Marsellus Wallace (Ving Rhames, Amanecer de los muertos), quien les encarga la importante misión de recuperar su misterioso maletín, que ha sido robado. Ahí empezarán todos sus problemas.\n" +
                     "\n" +
@@ -46,7 +46,7 @@ class PeliculaDaoMockImpl : PeliculaDao {
             "Kingsman: Servicio Secreto",
             "Acción",
             "Matthew Vaughn",
-            "9",
+            9.2,
             "https://m.media-amazon.com/images/I/81Mi4-Qt4wL._SY445_.jpg",
             "Un veterano agente secreto inglés (Colin Firth) debe entrenar a un joven sin refinar (Taron Egerton), pero que promete convertirse en un competitivo agente gracias a un ultra-programa de entrenamiento, al mismo tiempo que una amenaza global emerge procedente de un genio retorcido. Adaptación del cómic de Mark Millar y Dave Gibbons.",
             "123456789",
