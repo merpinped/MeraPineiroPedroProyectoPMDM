@@ -26,7 +26,6 @@ import retrofit2.Response
 class PeliculaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPeliculaBinding
-    private lateinit var btnMas: FloatingActionButton
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,39 +35,6 @@ class PeliculaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         title = "Peliculas"
-
-        // SharedPreferences
-        sharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
-
-        // Retrofit
-        val token = sharedPreferences.getString("token", "No encontrado")
-
-        val llamadaApi: Call<MutableList<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer $token")
-        llamadaApi.enqueue(object : Callback<MutableList<Pelicula>> {
-            override fun onResponse(call: Call<MutableList<Pelicula>>, response: Response<MutableList<Pelicula>>) {
-                if (response.code() > 299 || response.code() < 200) {
-                    Toast.makeText(
-                        this@PeliculaActivity,
-                        "No se pudo cargar la lista de películas",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    val listaPeliculas = response.body()!!
-
-                    // Creo los componentes del RecyclerView
-                    val layoutManager = LinearLayoutManager(this@PeliculaActivity)
-                    val adapter = ListaPeliculasAdapters(listaPeliculas)
-
-                    // Asocio el RVIEW con sus componentes
-                    binding.rvPeliculas.adapter = adapter
-                    binding.rvPeliculas.layoutManager = layoutManager
-                }
-            }
-
-            override fun onFailure(call: Call<MutableList<Pelicula>>, t: Throwable) {
-                Log.d("response: failure", t.message.toString())
-            }
-        })
     }
 
     override fun onResume() { // Carga las imagenes cuando vuelve a la activity de pelicula
@@ -78,9 +44,9 @@ class PeliculaActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
         val token = sharedPreferences.getString("token", "No encontrado")
 
-        val llamadaApi: Call<MutableList<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer $token")
-        llamadaApi.enqueue(object : Callback<MutableList<Pelicula>> {
-            override fun onResponse(call: Call<MutableList<Pelicula>>, response: Response<MutableList<Pelicula>>) {
+        val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer $token")
+        llamadaApi.enqueue(object : Callback<List<Pelicula>> {
+            override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
                 if (response.code() > 299 || response.code() < 200) {
                     Toast.makeText(
                         this@PeliculaActivity,
@@ -100,7 +66,7 @@ class PeliculaActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<MutableList<Pelicula>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
                 Log.d("response: failure", t.message.toString())
             }
         })

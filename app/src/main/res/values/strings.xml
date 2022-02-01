@@ -19,6 +19,7 @@
     <string name="titulo">Titulo:</string>
     <string name="nota">Nota:</string>
     <string name="resumen">Resumen:</string>
+    <string name="tiempo">Duración:</string>
     <string name="url_imagen">Url (Imagen):</string>
     <string name="telefono_director">Teléfono:</string>
     <string name="todo">TODO</string>

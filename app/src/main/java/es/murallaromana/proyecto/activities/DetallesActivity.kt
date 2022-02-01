@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -11,11 +12,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.squareup.picasso.Picasso
 import es.murallaromana.proyecto.modelos.dao.App
 import es.murallaromana.proyecto.R
+import es.murallaromana.proyecto.RetrofitClient
+import es.murallaromana.proyecto.adpaters.ListaPeliculasAdapters
 import es.murallaromana.proyecto.databinding.ActivityDetallesBinding
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DetallesActivity : AppCompatActivity() {
 
@@ -41,6 +48,7 @@ class DetallesActivity : AppCompatActivity() {
             binding.etNota.setText(infoPelicula.nota.toString())
             binding.etResumen.setText(infoPelicula.resumen)
             binding.etUrl.setText(infoPelicula.url)
+            binding.etTiempo.setText(infoPelicula.tiempo)
 
             if(!infoPelicula.telefono.isEmpty()) {
                 binding.etTelefonoD.setText(infoPelicula.telefono.replace(" ", ""))
@@ -78,13 +86,16 @@ class DetallesActivity : AppCompatActivity() {
 
             binding.etTelefonoD.isFocusableInTouchMode = true
             binding.etTelefonoD.isCursorVisible = true
+
+            binding.etTiempo.isFocusableInTouchMode = true
+            binding.etTiempo.isCursorVisible = true
         }
 
         binding.btLlamar.setOnClickListener() { // Si clickas en el teléfono del director te lleva al teléfono para llamarle
             val telefono = "+34" + binding.etTelefonoD.text.toString()
             val llamada = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telefono, null))
 
-//            intent.data = Uri.parse(telefono)
+            // intent.data = Uri.parse(telefono)
             startActivity(llamada)
         }
     }
@@ -100,7 +111,7 @@ class DetallesActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.accion_editar) { // Editar (Guardar)
+        if (item.itemId == R.id.accion_editar) {
             if (bandera) {
                 binding.btLlamar.isEnabled = false
 
@@ -127,7 +138,10 @@ class DetallesActivity : AppCompatActivity() {
                 binding.etTelefonoD.isFocusableInTouchMode = true
                 binding.etTelefonoD.isCursorVisible = true
 
-                bandera = false // Un marcador para cambiar el icono de edición y de aceptar la edición
+                binding.etTiempo.isFocusableInTouchMode = true
+                binding.etTiempo.isCursorVisible = true
+
+                bandera = false // Un marcador para cambiar el icono de edición a acepatar y viceversa
             } else {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("Editar pelicula")
@@ -143,23 +157,12 @@ class DetallesActivity : AppCompatActivity() {
                         binding.etNota.isFocusable = false
                         binding.etGenero.isFocusable = false
                         binding.etTelefonoD.isFocusable = false
+                        binding.etTiempo.isFocusable = false
 
                         // Borramos la película actual y la substituimos por los nuevos datos
                         val position: Int? = intent.extras?.get("position") as Int?
                         if (position != null) {
-                            App.pelicula.removeAt(position)
-                            App.pelicula.add(
-                                Pelicula(
-                                    binding.etTitulo.text.toString(),
-                                    binding.etGenero.text.toString(),
-                                    binding.etDirector.text.toString(),
-                                    binding.etNota.text.toString().toDouble(),
-                                    binding.etUrl.text.toString(),
-                                    binding.etResumen.text.toString(),
-                                    binding.etTelefonoD.text.toString(),
-                                    "120" // Cambiarlo en la version final
-                                )
-                            )
+
 
                             finish()
                         }
@@ -171,7 +174,7 @@ class DetallesActivity : AppCompatActivity() {
             }
 
             return true
-        } else if (item.itemId == R.id.accion_borrar) { // Borrar, action bar
+        } else if (item.itemId == R.id.accion_borrar) {
             if (bandera) {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("Borrar pelicula")
@@ -179,7 +182,7 @@ class DetallesActivity : AppCompatActivity() {
                     .setPositiveButton("Aceptar") { dialog, id ->
                         val position: Int? = intent.extras?.get("position") as Int?
                         if (position != null) {
-                            App.pelicula.removeAt(position)
+                            // Borrar api
                         }
 
                         finish()
@@ -191,7 +194,7 @@ class DetallesActivity : AppCompatActivity() {
             }
 
             return true
-        } else if (item.itemId == R.id.accion_add) { // Añade una nueva película
+        } else if (item.itemId == R.id.accion_add) {
             if (TextUtils.equals(
                     binding.etTitulo.text.toString(),
                     ""
@@ -211,6 +214,9 @@ class DetallesActivity : AppCompatActivity() {
                 ) || TextUtils.equals(
                     binding.etTelefonoD.text.toString(),
                     ""
+                ) || TextUtils.equals(
+                    binding.etTiempo.text.toString(),
+                    ""
                 )
             ) {
                 Toast.makeText(this, "Uno de los campos está vacío", Toast.LENGTH_SHORT).show()
@@ -219,18 +225,35 @@ class DetallesActivity : AppCompatActivity() {
                 val dialog = builder.setTitle("Crear nueva pelicula")
                     .setMessage("Estás a punto de crear una pelicula")
                     .setPositiveButton("Aceptar") { dialog, id ->
-                        App.pelicula.add(
-                            Pelicula(
-                                binding.etTitulo.text.toString(),
-                                binding.etGenero.text.toString(),
-                                binding.etDirector.text.toString(),
-                                binding.etNota.text.toString().toDouble(),
-                                binding.etUrl.text.toString(),
-                                binding.etResumen.text.toString(),
-                                binding.etTelefonoD.text.toString(),
-                                "120" // Cambiarlo en la version final
-                            ) // https://upload.wikimedia.org/wikipedia/commons/5/54/Beaver-Szmurlo.jpg
-                        )
+                        // Añadir en la api
+                        val sharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
+                        val token = sharedPreferences.getString("token", "No encontrado")
+                        val pelicula = Pelicula(binding.etTitulo.text.toString(), binding.etGenero.text.toString(), binding.etDirector.text.toString(), binding.etNota.text.toString().toDouble(),
+                        binding.etUrl.text.toString(), binding.etResumen.text.toString(), binding.etTelefonoD.text.toString(), binding.etTiempo.text.toString().toInt())
+
+                        val llamadaApi: Call<Unit> = RetrofitClient.apiRetrofit.createPeliculas("Bearer $token", pelicula)
+                        llamadaApi.enqueue(object : Callback<Unit> {
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                                if (response.code() > 299 || response.code() < 200) {
+                                    Toast.makeText(
+                                        this@DetallesActivity,
+                                        "No se pudo añadir la película",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    Toast.makeText(
+                                        this@DetallesActivity,
+                                        "Película añadida con éxito",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Log.d("response: failure", t.message.toString())
+                            }
+                        })
+
 
                         finish()
                     }

@@ -14,7 +14,7 @@ import es.murallaromana.proyecto.activities.DetallesActivity
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
 
-class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
+class ListaPeliculasAdapters(val peliculas: List<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
 
     class PeliculasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvDirector: TextView = itemView.findViewById(R.id.tvDirectorDetalles)
@@ -44,7 +44,6 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
         Picasso.get().load(pelicula.url).into(holder.ivImagen)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, holder.tvTitulo.text, Toast.LENGTH_SHORT).show()
             val intent = Intent(holder.itemView.context, DetallesActivity::class.java)
 
             intent.putExtra("pelicula", pelicula)
@@ -52,6 +51,5 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
             holder.itemView.context.startActivity(intent)
         } // Click event, se abre la nueva activity
     }
-    //este metodo te da la cuenta del largo, entonces simplemente podemos igualarlo
     override fun getItemCount() = peliculas.size
 }
