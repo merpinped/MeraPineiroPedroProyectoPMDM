@@ -4,6 +4,15 @@
     <color name="azul_suave">#d1d9ff</color>
     <color name="azul_oscuro">#6f79a8</color>
 
+    <color name="primaryColor">#b71c1c</color>
+    <color name="primaryLightColor">#f05545</color>
+    <color name="primaryDarkColor">#7f0000</color>
+    <color name="secondaryColor">#d32f2f</color>
+    <color name="secondaryLightColor">#ff6659</color>
+    <color name="secondaryDarkColor">#9a0007</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

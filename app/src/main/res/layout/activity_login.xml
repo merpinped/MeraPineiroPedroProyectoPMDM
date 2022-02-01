@@ -30,12 +30,13 @@
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="10dp"
                 android:hint="@string/hint_introduce_email"
+                android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black"
                 android:textColorHint="@color/black"
-                android:inputType="textEmailAddress"
-                android:textColorLink="@color/black" />
+                android:textColorLink="@color/black"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -63,7 +64,8 @@
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black"
                 android:textColorHint="@color/black"
-                android:textColorLink="@color/black" />
+                android:textColorLink="@color/black"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -75,7 +77,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/btnNuevoUsuario"
@@ -88,7 +91,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLog"
-            app:layout_constraintVertical_bias="0.031" />
+            app:layout_constraintVertical_bias="0.031"
+            tools:ignore="TextContrastCheck" />
 
         <ImageView
             android:id="@+id/ivClaqueta"
@@ -98,7 +102,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/palomitas"
+            android:contentDescription="@string/todo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
