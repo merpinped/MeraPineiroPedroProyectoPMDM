@@ -8,9 +8,7 @@
     <application
         android:allowBackup="true"
         android:name=".modelos.dao.App"
-        android:icon="@mipmap/ic_movies"
         android:label="Peliculas"
-        android:roundIcon="@mipmap/ic_movies_circle"
         android:supportsRtl="true"
         android:theme="@style/Theme.MeraPineiroPedroProyectoPMDM">
         <activity

@@ -236,7 +236,6 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/azul_oscuro"
             android:contentDescription="@string/todo"
             android:enabled="true"
             android:src="@drawable/ic_phone"

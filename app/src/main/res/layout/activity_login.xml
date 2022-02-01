@@ -71,7 +71,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:backgroundTint="@color/azul_intermedio"
             android:text="@string/btn_log"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -84,7 +83,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/azul_intermedio"
             android:text="@string/btn_nuevo_usuario"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,9 +94,9 @@
             android:id="@+id/ivClaqueta"
             android:layout_width="214dp"
             android:layout_height="186dp"
-            android:layout_marginTop="10dp"
-            android:src="@mipmap/ic_movies"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

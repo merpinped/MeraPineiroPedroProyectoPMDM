@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_suave"
-    android:backgroundTint="@color/azul_suave"
     android:padding="@dimen/padding_pantalla_default_vertical"
     tools:context=".activities.PeliculaActivity">
 

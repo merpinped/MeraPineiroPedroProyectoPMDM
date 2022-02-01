@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_add.xml" value="0.3828125" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_claqueta.xml" value="0.3828125" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_palomitas.xml" value="0.3828125" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_palomitas_background.xml" value="0.3828125" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout-v29/activity_detalles.xml" value="0.36666666666666664" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_detalles.xml" value="0.25" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/activity_login.xml" value="0.33" />
@@ -12,6 +15,7 @@
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/layout/item_pelicula.xml" value="0.33" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/lista_peliculas_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/menu/menu_detalles_pelicula.xml" value="0.36666666666666664" />
+        <entry key="..\:/AplicacionesAndroid/MeraPineiroPedroProyectoPMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_add.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/merpinped/AndroidStudioProjects/MeraPineiroPedroProyectoPMDM/app/src/main/res/drawable/ic_edit.xml" value="0.3223684210526316" />
