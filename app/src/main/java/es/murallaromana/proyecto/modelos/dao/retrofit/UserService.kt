@@ -15,7 +15,7 @@ interface UserService {
     fun login(@Body user: Usuario): Call<Token>
 
     @GET("movies")
-    fun getPeliculas(@Header("Authorization") token: String?): Call<List<Pelicula>>
+    fun getPeliculas(@Header("Authorization") token: String?): Call<MutableList<Pelicula>>
 
     @POST("movies")
     fun createPeliculas(@Header("Authorization") token: String?, @Body pelicula: Pelicula): Call<Unit>

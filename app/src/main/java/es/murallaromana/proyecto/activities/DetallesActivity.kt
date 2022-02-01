@@ -48,11 +48,8 @@ class DetallesActivity : AppCompatActivity() {
             binding.etNota.setText(infoPelicula.nota.toString())
             binding.etResumen.setText(infoPelicula.resumen)
             binding.etUrl.setText(infoPelicula.url)
-            binding.etTiempo.setText(infoPelicula.tiempo)
-
-            if(!infoPelicula.telefono.isEmpty()) {
-                binding.etTelefonoD.setText(infoPelicula.telefono.replace(" ", ""))
-            }
+            binding.etTiempo.setText(infoPelicula.tiempo.toString())
+            binding.etTelefonoD.setText(infoPelicula.telefono)
 
             Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
 

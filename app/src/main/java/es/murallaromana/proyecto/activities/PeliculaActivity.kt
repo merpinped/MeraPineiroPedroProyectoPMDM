@@ -44,9 +44,9 @@ class PeliculaActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
         val token = sharedPreferences.getString("token", "No encontrado")
 
-        val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer $token")
-        llamadaApi.enqueue(object : Callback<List<Pelicula>> {
-            override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
+        val llamadaApi: Call<MutableList<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer $token")
+        llamadaApi.enqueue(object : Callback<MutableList<Pelicula>> {
+            override fun onResponse(call: Call<MutableList<Pelicula>>, response: Response<MutableList<Pelicula>>) {
                 if (response.code() > 299 || response.code() < 200) {
                     Toast.makeText(
                         this@PeliculaActivity,
@@ -66,7 +66,7 @@ class PeliculaActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
+            override fun onFailure(call: Call<MutableList<Pelicula>>, t: Throwable) {
                 Log.d("response: failure", t.message.toString())
             }
         })
