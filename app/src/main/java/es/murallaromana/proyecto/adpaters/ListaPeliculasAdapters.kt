@@ -46,8 +46,7 @@ class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetallesActivity::class.java)
 
-            intent.putExtra("pelicula", pelicula)
-            intent.putExtra("position", position)
+            intent.putExtra("peliculaId", pelicula.id)
             holder.itemView.context.startActivity(intent)
         } // Click event, se abre la nueva activity
     }

@@ -34,26 +34,48 @@ class DetallesActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+        val infoPelicula = intent.extras?.get("peliculaId") as String?
         binding = ActivityDetallesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val infoPelicula: Pelicula? = intent.extras?.get("pelicula") as Pelicula?
-
         if (infoPelicula != null) { // Si el objeto película viene vacío es una nueva película y los edit text están vacíos
-            title = infoPelicula.nombre // Cambiamos el título de la pantalla
+            val sharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
+            val token = sharedPreferences.getString("token", "No encontrado")
 
-            binding.etTitulo.setText(infoPelicula.nombre)
-            binding.etDirector.setText(infoPelicula.director)
-            binding.etGenero.setText(infoPelicula.genero)
-            binding.etNota.setText(infoPelicula.nota.toString())
-            binding.etResumen.setText(infoPelicula.resumen)
-            binding.etUrl.setText(infoPelicula.url)
-            binding.etTiempo.setText(infoPelicula.tiempo.toString())
-            binding.etTelefonoD.setText(infoPelicula.telefono)
+            val llamadaApi: Call<Pelicula> = RetrofitClient.apiRetrofit.getById("Bearer $token", infoPelicula)
+            llamadaApi.enqueue(object : Callback<Pelicula> {
+                override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>) {
+                    if (response.code() > 299 || response.code() < 200) {
+                        Toast.makeText(
+                            this@DetallesActivity,
+                            "No se pudo cargar la pelicula",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        val peliculaDetalles = response.body()
 
-            Picasso.get().load(infoPelicula.url).into(binding.ivImagen)
+                        title = peliculaDetalles?.nombre // Cambiamos el título de la pantalla
 
-            binding.btLlamar.isEnabled = true
+                        binding.etTitulo.setText(peliculaDetalles?.nombre)
+                        binding.etDirector.setText(peliculaDetalles?.director)
+                        binding.etGenero.setText(peliculaDetalles?.genero)
+                        binding.etNota.setText(peliculaDetalles?.nota.toString())
+                        binding.etResumen.setText(peliculaDetalles?.resumen)
+                        binding.etUrl.setText(peliculaDetalles?.url)
+                        binding.etTiempo.setText(peliculaDetalles?.tiempo.toString())
+                        binding.etTelefonoD.setText(peliculaDetalles?.telefono)
+
+                        Picasso.get().load(peliculaDetalles?.url).into(binding.ivImagen)
+
+                        binding.btLlamar.isEnabled = true
+                    }
+                }
+
+                override fun onFailure(call: Call<Pelicula>, t: Throwable) {
+                    Log.d("response: failure", t.message.toString())
+                }
+            })
+
         } else { // Si es una nueva película son todos editables
             title = "Nueva Película"
 
@@ -177,11 +199,28 @@ class DetallesActivity : AppCompatActivity() {
                 val dialog = builder.setTitle("Borrar pelicula")
                     .setMessage("Estás a punto de borrar una pelicula")
                     .setPositiveButton("Aceptar") { dialog, id ->
-                        val position: Int? = intent.extras?.get("position") as Int?
-                        if (position != null) {
-                            // Borrar api
-                        }
+                        val llamadaApi: Call<Unit> = RetrofitClient.apiRetrofit.borrarPeliculas("")
+                        llamadaApi.enqueue(object : Callback<Unit> {
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                                if (response.code() > 299 || response.code() < 200) {
+                                    Toast.makeText(
+                                        this@DetallesActivity,
+                                        "No se pudo borrar la película",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    Toast.makeText(
+                                        this@DetallesActivity,
+                                        "Película borrada con éxito",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
 
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Log.d("response: failure", t.message.toString())
+                            }
+                        })
                         finish()
                     }
                     .setNegativeButton("Cancelar", null)
@@ -226,7 +265,7 @@ class DetallesActivity : AppCompatActivity() {
                         val sharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
                         val token = sharedPreferences.getString("token", "No encontrado")
                         val pelicula = Pelicula(binding.etTitulo.text.toString(), binding.etGenero.text.toString(), binding.etDirector.text.toString(), binding.etNota.text.toString().toDouble(),
-                        binding.etUrl.text.toString(), binding.etResumen.text.toString(), binding.etTelefonoD.text.toString(), binding.etTiempo.text.toString().toInt())
+                        binding.etUrl.text.toString(), binding.etResumen.text.toString(), binding.etTelefonoD.text.toString(), binding.etTiempo.text.toString().toInt(), null)
 
                         val llamadaApi: Call<Unit> = RetrofitClient.apiRetrofit.createPeliculas("Bearer $token", pelicula)
                         llamadaApi.enqueue(object : Callback<Unit> {

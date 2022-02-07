@@ -11,5 +11,6 @@ class Pelicula(
     @SerializedName("imageUrl") var url: String,
     @SerializedName("description") var resumen: String,
     @SerializedName("directorPhone") var telefono: String,
-    @SerializedName("runtimeMinutes") var tiempo: Int
+    @SerializedName("runtimeMinutes") var tiempo: Int,
+    @SerializedName("id") var id: String?
 ) : Serializable

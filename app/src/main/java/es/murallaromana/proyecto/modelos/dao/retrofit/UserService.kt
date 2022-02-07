@@ -1,6 +1,5 @@
 package es.murallaromana.proyecto.modelos.dao.retrofit
 
-import android.media.session.MediaSession
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 import es.murallaromana.proyecto.modelos.entidades.Token
 import es.murallaromana.proyecto.modelos.entidades.Usuario
@@ -17,9 +16,12 @@ interface UserService {
     @GET("movies")
     fun getPeliculas(@Header("Authorization") token: String?): Call<MutableList<Pelicula>>
 
+    @GET("movies")
+    fun getById(@Header("Authorization") token: String?, @Path("id") id: String): Call<Pelicula>
+
     @POST("movies")
     fun createPeliculas(@Header("Authorization") token: String?, @Body pelicula: Pelicula): Call<Unit>
 
     @DELETE("movies")
-    fun borrarPeliculas(@Header("Authorization") token: String?, @Body pelicula: Pelicula): Call<Unit>
+    fun borrarPeliculas(@Path("id") id: String): Call<Unit>
 }
