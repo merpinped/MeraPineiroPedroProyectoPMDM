@@ -14,7 +14,7 @@ import es.murallaromana.proyecto.activities.DetallesActivity
 import es.murallaromana.proyecto.modelos.entidades.Pelicula
 
 
-class ListaPeliculasAdapters(val peliculas: MutableList<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
+class ListaPeliculasAdapters(val peliculas: List<Pelicula>): RecyclerView.Adapter<ListaPeliculasAdapters.PeliculasViewHolder>(){
 
     class PeliculasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvDirector: TextView = itemView.findViewById(R.id.tvDirectorDetalles)

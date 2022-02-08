@@ -24,4 +24,6 @@
     <string name="telefono_director">Teléfono:</string>
     <string name="todo">TODO</string>
     <string name="aceptar_menu">Aceptar</string>
+    <string name="correoPorDefecto">pedro@gmail.com</string>
+    <string name="contraseñaPorDefecto">1234</string>
 </resources>
