@@ -8,4 +8,12 @@
         android:fillColor="@android:color/white"
         android:title="Añadir"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/accion_logout"
+        android:icon="@drawable/ic_logout"
+        android:orderInCategory="300"
+        android:fillColor="@android:color/white"
+        android:title="Añadir"
+        app:showAsAction="ifRoom" />
 </menu>

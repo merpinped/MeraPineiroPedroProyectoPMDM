@@ -1,5 +1,6 @@
 package es.murallaromana.proyecto.activities
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -79,6 +80,17 @@ class PeliculaActivity : AppCompatActivity() {
         if (item.itemId == R.id.accion_add) {
             val intent = Intent(this, DetallesActivity::class.java)
             startActivity(intent)
+            return true
+        } else if (item.itemId == R.id.accion_logout) { // Desloguea al usuari (elimina el token)
+            val sharedPreferences = getSharedPreferences("datos", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("codeResponse", "Token inválido")
+            editor.putString("token", "Token inválido")
+            editor.apply()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
             return true
         } else {
             return super.onOptionsItemSelected(item)

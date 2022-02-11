@@ -8,7 +8,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/palomitas"
-        android:name=".modelos.dao.App"
+        android:name=".modelos.dao.Start"
         android:label="Peliculas"
         android:supportsRtl="true"
         android:theme="@style/Theme.MeraPineiroPedroProyectoPMDM">
@@ -23,9 +23,6 @@
         <activity
             android:name=".activities.PeliculaActivity"
             android:exported="true">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.LoginActivity" />
         </activity>
         <activity
             android:name=".activities.RegistraActivity"
@@ -38,7 +35,6 @@
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

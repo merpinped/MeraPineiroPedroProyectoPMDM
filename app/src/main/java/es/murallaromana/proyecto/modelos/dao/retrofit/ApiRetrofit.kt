@@ -6,7 +6,7 @@ import es.murallaromana.proyecto.modelos.entidades.Usuario
 import retrofit2.Call
 import retrofit2.http.*
 
-interface UserService {
+interface ApiRetrofit {
     @POST("users/signup")
     fun signup(@Body user: Usuario): Call<Unit>
 
@@ -25,6 +25,6 @@ interface UserService {
     @DELETE("movies/{id}")
     fun borrarPeliculas(@Header("Authorization") token: String?, @Path("id") id: String?): Call<Unit>
 
-    @PUT("movies/{id}")
+    @PUT("movies")
     fun actualizarPeliculas(@Header("Authorization") token: String, @Body pelicula: Pelicula): Call<Unit>
 }

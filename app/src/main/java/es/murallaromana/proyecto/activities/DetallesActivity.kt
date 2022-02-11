@@ -189,16 +189,14 @@ class DetallesActivity : AppCompatActivity() {
                             binding.etResumen.text.toString(),
                             binding.etTelefonoD.text.toString(),
                             binding.etTiempo.text.toString().toInt(),
-                            infoPelicula
+                            infoPelicula.toString()
                         )
                         val llamadaApi: Call<Unit> = RetrofitClient.apiRetrofit.actualizarPeliculas(
                             "Bearer $token",
                             pelicula
                         )
                         llamadaApi.enqueue(object : Callback<Unit> {
-                            override fun onResponse(
-                                call: Call<Unit>, response: Response<Unit>
-                            ) {
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                                 if (response.code() > 299 || response.code() < 200) {
                                     Toast.makeText(
                                         this@DetallesActivity,

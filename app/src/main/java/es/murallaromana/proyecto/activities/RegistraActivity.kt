@@ -1,8 +1,6 @@
 package es.murallaromana.proyecto.activities
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -13,14 +11,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.textfield.TextInputEditText
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.RetrofitClient
-import es.murallaromana.proyecto.modelos.dao.retrofit.UserService
-import es.murallaromana.proyecto.modelos.entidades.Token
 import es.murallaromana.proyecto.modelos.entidades.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class RegistraActivity : AppCompatActivity() {

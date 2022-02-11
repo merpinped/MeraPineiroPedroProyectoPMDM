@@ -1,6 +1,6 @@
 package es.murallaromana.proyecto
 
-import es.murallaromana.proyecto.modelos.dao.retrofit.UserService
+import es.murallaromana.proyecto.modelos.dao.retrofit.ApiRetrofit
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,5 +12,5 @@ object RetrofitClient {
             .build()
     }
 
-    val apiRetrofit = getRetrofit().create(UserService::class.java)
+    val apiRetrofit = getRetrofit().create(ApiRetrofit::class.java)
 }
