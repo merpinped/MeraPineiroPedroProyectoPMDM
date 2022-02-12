@@ -29,16 +29,10 @@ class Start: Application() {
                     val editor = sharedPreferences.edit()
                     editor.putString("codeResponse", response.code().toString())
                     editor.apply()
-
-                    val inicio = Intent(this@Start, LoginActivity::class.java)
-                    startActivity(inicio)
                 } else {
                     val editor = sharedPreferences.edit()
                     editor.putString("codeResponse", response.code().toString())
                     editor.apply()
-
-                    val inicio = Intent(this@Start, PeliculaActivity::class.java)
-                    startActivity(inicio)
                 }
             }
 
