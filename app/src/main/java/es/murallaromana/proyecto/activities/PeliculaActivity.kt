@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import es.murallaromana.proyecto.R
 import es.murallaromana.proyecto.RetrofitClient
@@ -31,6 +32,7 @@ class PeliculaActivity : AppCompatActivity() {
         binding = ActivityPeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // Desactiva el modo oscuro
         title = "Peliculas"
     }
 
@@ -81,7 +83,7 @@ class PeliculaActivity : AppCompatActivity() {
             val intent = Intent(this, DetallesActivity::class.java)
             startActivity(intent)
             return true
-        } else if (item.itemId == R.id.accion_logout) { // Desloguea al usuari (elimina el token)
+        } else if (item.itemId == R.id.accion_logout) { // Desloguea al usuario (elimina el token)
             val sharedPreferences = getSharedPreferences("datos", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("codeResponse", "Token inválido")
