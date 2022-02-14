@@ -52,6 +52,8 @@ class LoginActivity : AppCompatActivity() {
 
             btnLogin.setOnClickListener() {
                 btnLogin.isEnabled = false
+                btnNuevoUsuario.isEnabled = false
+
                 val u = Usuario(tiEmail.text.toString(), tiPassword.text.toString())
                 val loginCall = RetrofitClient.apiRetrofit.login(u)
                 loginCall.enqueue(object : Callback<Token> {
@@ -65,6 +67,8 @@ class LoginActivity : AppCompatActivity() {
 
                         if (response.code() > 299 || response.code() < 200) {
                             btnLogin.isEnabled = true
+                            btnNuevoUsuario.isEnabled = true
+
                             Toast.makeText(
                                 this@LoginActivity,
                                 "No se pudo iniciar sesión, usuario no registrado",
@@ -89,6 +93,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             btnNuevoUsuario.setOnClickListener() {
+                btnLogin.isEnabled = false
                 btnNuevoUsuario.isEnabled = false
 
                 val inicio = Intent(this, RegistraActivity::class.java)
