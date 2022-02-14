@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         super.onResume()
 
         val sharedPreferences = getSharedPreferences("datos", Context.MODE_PRIVATE)
-        val codeResponse = sharedPreferences.getString("codeResponse", "CodeDefault")
+        val codeResponse = sharedPreferences.getString("codeResponse", "Token inválido")
 
         if (codeResponse == "Token inválido") {
             setContentView(R.layout.activity_login) // Declarar el setContentView lo más tarde posible para que no me cargue el login si ya tiene token
