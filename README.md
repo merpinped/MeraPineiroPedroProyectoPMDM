@@ -25,14 +25,6 @@
 
 # Funcionamiento básico de la app:
 
-1. La app comprueba si el token guardado en el SharedPreference está caducado o no.
+La app comprueba si el token guardado en el SharedPreference está caducado o no, si el token está caducado va a la pantalla de inicio de sesión y crea uno nuevo, en el caso contrario va directamente al listado de películas. Si no tienes un usuario con el que iniciar sesión vas a la pantalla de registro y creas un nuevo usuario.
 
-2. Si el token está caducado va a la pantalla de inicio de sesión y crea uno nuevo, en el caso contrario va directamente al listado de películas.
-
-3. Si no tienes un usuario con el que iniciar sesión vas a la pantalla de registro y creas un nuevo usuario.
- 
-4. En la pantalla de listado de películas podemos crear una nueva película o acceder a los detalles de las existentes.
-
-5. En la pantalla de detalles podemos borrar o editar una película.
-
-6. Todas estas operaciones se realizan desde una api externa.
+En la pantalla de listado de películas podemos crear una nueva película o acceder a los detalles de las existentes al etrar en la pantalla de detalles podemos borrar o editarla, todas estas operaciones se realizan desde una api externa.
