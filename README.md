@@ -7,6 +7,12 @@
 3. Lista películas
 4. Detalles películas
 
-**Pantalla de listado de películas*:**
+**Pantalla inicio de sesión:**
 
-![Pantalla de registro](/Imagenes/pantallaRegistro.png)
+**Pantalla de registro:**
+
+**Pantalla de listado de películas:**
+
+**Pantalla detalles película:**
+
+![Lista peliculas](Imagenes/PantallaListaPeliculas.png)
