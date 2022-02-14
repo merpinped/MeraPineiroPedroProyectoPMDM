@@ -95,6 +95,8 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(inicio)
             }
         } else {
+            val inicio = Intent(this@LoginActivity, PeliculaActivity::class.java)
+            startActivity(inicio)
             finish()
         }
     }
