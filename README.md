@@ -3,7 +3,7 @@
 **Pantallas app:**
 
 1. Registro
-2. Login
+2. Inicio sesión
 3. Lista películas
 4. Detalles películas
 
